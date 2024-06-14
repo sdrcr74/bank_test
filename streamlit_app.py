@@ -126,7 +126,7 @@ elif page==pages[2]:
   bank['housing_num'] = bank['housing'].apply(housing)
   loan = lambda x:1 if x=='yes' else 0
   bank['loan_num'] = bank['loan'].apply(loan)
-  fig13 = fig = px.imshow(bank, 
+  fig13 = px.imshow(bank, 
                 labels=dict(x="Columns", y="Rows", color="Value"), 
                 x=[f'Col{i}' for i in range(1, 13)], 
                 y=[f'Row{i}' for i in range(1, 11)],
