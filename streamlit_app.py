@@ -89,7 +89,7 @@ elif page==pages[2]:
     st.plotly_chart(fig4, key="bank", on_select="rerun")
   if Graphique_sélectionné =='Répartition du nombre de contact de la dernière campagne': 
     fig4=px.box(bank,y='previous')
-    st.plotly_chart(fig4, key="bank", on_select="rerun")
+    st.plotly_chart(fig4, key="bank", on_select="rerun", width=800, height=400)
   
 elif page==pages[3]:
   st.write("DataViz")
