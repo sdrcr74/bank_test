@@ -22,10 +22,10 @@ with st.sidebar:
 if page==pages[0]:
   st.header("Description du projet")
   st.subheader("L'objectif :")
-  st.write("Ce projet a été mené dans le cadre de notre formation Data Analyst avec Datascientest.)
+  st.write("Ce projet a été mené dans le cadre de notre formation Data Analyst avec Datascientest.")
   st.write("L’objectif du projet est d’établir un modèle permettant de prédire le succès d’une campagne marketing d’une banque.")
   st.write("Concrétement il s'agit de prédire, sur la base des données démographiques du client, sa situation financière et son précédent contact avec la banque, s'il va souscrire ou non au produit Dépôt à terme.")
-  st.write(Le jeu de données qui nous a été mis à disposition s’appelle 'Bank Marketing Dataset'. Ce jeu de données est disponible librement sur [Kaggle] (https://www.kaggle.com/datasets/janiobachmann/bank-marketing-dataset))
+  st.write("Le jeu de données qui nous a été mis à disposition s’appelle 'Bank Marketing Dataset'. Ce jeu de données est disponible librement sur [Kaggle] (https://www.kaggle.com/datasets/janiobachmann/bank-marketing-dataset)")
   
   st.write("Ce Streamlit illustre notre approche, allant de l'exploration des données à la création du modèle prédictif.")
 elif page==pages[1]:
