@@ -93,26 +93,26 @@ elif page==pages[2]:
     st.write("Les clients sont en général contactés moins de 8 fois.")
   Graphique_sélectionné1=st.selectbox(label="Autres variables", options=['Répartition par statut marital','Répartition par éducation','Répartition par défauts de paiement', 'Répartition par prêt immobilier','Répartition des prêts à la conso','Répartition par type de contact','Résultat sur la dernière campagne marketing'])
   if Graphique_sélectionné1 =='Répartition par statut marital': 
-    fig2=px.histogram(bank, x='marital')
-    st.plotly_chart(fig2, key="bank", on_select="rerun")
-  if Graphique_sélectionné1 =='Répartition par éducation': 
-    fig3=px.histogram(bank, x='education')
-    st.plotly_chart(fig3, key="bank", on_select="rerun")
-  if Graphique_sélectionné1 =='Répartition par défauts de paiement': 
-    fig5=px.histogram(bank,x='default')
+    fig5=px.histogram(bank, x='marital')
     st.plotly_chart(fig5, key="bank", on_select="rerun")
-  if Graphique_sélectionné1 =='Répartition par prêt immobilier': 
-    fig6=px.histogram(bank, x='housing')
+  if Graphique_sélectionné1 =='Répartition par éducation': 
+    fig6=px.histogram(bank, x='education')
     st.plotly_chart(fig6, key="bank", on_select="rerun")
-  if Graphique_sélectionné1 =='Répartition des prêts à la conso': 
-    fig7=px.histogram(bank,x='loan')  
+  if Graphique_sélectionné1 =='Répartition par défauts de paiement': 
+    fig7=px.histogram(bank,x='default')
     st.plotly_chart(fig7, key="bank", on_select="rerun")
-  if Graphique_sélectionné1 =='Répartition par type de contact': 
-    fig8=px.histogram(bank, x='contact', histnorm='percent')
+  if Graphique_sélectionné1 =='Répartition par prêt immobilier': 
+    fig8=px.histogram(bank, x='housing')
     st.plotly_chart(fig8, key="bank", on_select="rerun")
-  if Graphique_sélectionné1 =='Résultat sur la dernière campagne marketing': 
-    fig9=px.histogram(bank, x='poutcome', histnorm = 'percent')
+  if Graphique_sélectionné1 =='Répartition des prêts à la conso': 
+    fig9=px.histogram(bank,x='loan')  
     st.plotly_chart(fig9, key="bank", on_select="rerun")
+  if Graphique_sélectionné1 =='Répartition par type de contact': 
+    fig10=px.histogram(bank, x='contact', histnorm='percent')
+    st.plotly_chart(fig10, key="bank", on_select="rerun")
+  if Graphique_sélectionné1 =='Résultat sur la dernière campagne marketing': 
+    fig11=px.histogram(bank, x='poutcome', histnorm = 'percent')
+    st.plotly_chart(fig11, key="bank", on_select="rerun")
   
 elif page==pages[3]:
   st.write("DataViz")
