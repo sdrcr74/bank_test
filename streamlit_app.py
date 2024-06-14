@@ -8,8 +8,8 @@ url = 'https://raw.githubusercontent.com/sdrcr74/bank_nov23/main/bank.csv'
 bank = pd.read_csv(url)
 st.image("https://raw.githubusercontent.com/sdrcr74/bank_test/main/datascientest_logo.png")
 st.subheader("Prédiction du succès d'une campagne de Marketing d’une banque")
-st.subheader("Maxence Malherre, Sophie Dorcier, Stéphane Lascaux, Van-Anh HA")
-st.subheader("NOV23_CONTINU_DA - Datascientest", divider='blue')
+st.header("Maxence Malherre, Sophie Dorcier, Stéphane Lascaux, Van-Anh HA")
+st.header("NOV23_CONTINU_DA - Datascientest", divider='blue')
 st.divider()
 st.sidebar.title("Sommaire")
 pages=["Le projet & jeu de données","Analyse & Datavisualisation","Préparation des données","Modélisation","Conclusion"]
