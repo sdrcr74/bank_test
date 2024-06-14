@@ -126,7 +126,7 @@ elif page==pages[2]:
   bank['housing_num'] = bank['housing'].apply(housing)
   loan = lambda x:1 if x=='yes' else 0
   bank['loan_num'] = bank['loan'].apply(loan)
-  fig13 = px.imshow(bank, labels=dict(x="Columns", y="Columns", color="Value"),color_continuous_scale='Viridis')
+  fig13 = px.imshow(bank, labels=dict(x="Columns", y="Columns"),color_continuous_scale='Viridis')
   st.plotly_chart(fig13, key="bank")
 elif page==pages[3]:
   st.write("DataViz")
