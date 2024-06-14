@@ -80,10 +80,8 @@ elif page==pages[2]:
     fig=px.histogram(bank, x='age')
     st.plotly_chart(fig, key="bank", on_select="rerun")
   if Graphique_sélectionné =='Répartition par métier':    
-    fig1=sns.displot(x='job', data=bank)
-    plt.xticks(rotation=90)
-    plt.title('Répartition par métier')
-    st.pyplot(fig1)
+    fig1=px.histogram(bank, x='job')
+    st.plotly_chart(fig1, key="bank", on_select="rerun")
   if Graphique_sélectionné =='Répartition par statut marital': 
     fig2=sns.displot(x='marital', data=bank)
     plt.title('Répartition par statut marital')
