@@ -126,8 +126,10 @@ elif page==pages[2]:
   bank['housing_num'] = bank['housing'].apply(housing)
   loan = lambda x:1 if x=='yes' else 0
   bank['loan_num'] = bank['loan'].apply(loan)
-  fig13= px.imshow(bank,x=bank.columns,y=bank.columns,color_continuous_scale='RdBu_r')
-  st.plotly_chart(fig13, key="bank")
+  matrice = bank.corr(numeric_only = callable )
+    fig, ax = plt.subplots(figsize = (10,10))
+    sns.heatmap(matrice, annot=True, cmap = 'rainbow', ax = ax);
+    st.write(fig)
         
 elif page==pages[3]:
   st.write("DataViz")
