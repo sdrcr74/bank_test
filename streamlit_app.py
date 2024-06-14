@@ -74,7 +74,8 @@ elif page==pages[1]:
 elif page==pages[2]:
   st.write("Dans cette partie nous avons sélectionné les quelques visusalisations qui permettent, selon nous, une meilleure appréhension du jeu de données. Dans un premier temps nous avons fait une analyse de la distribution des variables et ensuite nous avons visualisé la répartition des données en fonction de la variable cible.")
   st.header("Distribution des variables")
-  Graphique_sélectionné=st.selectbox(label="Variables principales", options=['Répartition par âge','Répartition par métier','Répartition par mois','Répartition du nombre de contact de la dernière campagne'])
+  st.subheader("Variables principales")
+  Graphique_sélectionné=st.selectbox(options=['Répartition par âge','Répartition par métier','Répartition par mois','Répartition du nombre de contact de la dernière campagne'])
   if Graphique_sélectionné =='Répartition par âge':   
     fig=px.histogram(bank, x='age')
     st.plotly_chart(fig, key="bank", on_select="rerun")
@@ -133,12 +134,14 @@ elif page==pages[2]:
   st.write(fig)
   fig13=px.box(bank, x='deposit', y='duration')
   st.plotly_chart(fig13, key="bank")
+  st.write("Nous avons identifier des relations entre certaines variables explicatives et notre variable cible")
+  st.write("Aussi nous observons que la durée de contact médian est plus élevée pour les personnes ayant souscrit un dépôt à terme.")
   st.write("Les autres variables qui nous semblent les plus pertinentes sont :")
   st.write("-Age")
   st.write("-Job")
   st.write("-Month")
   st.write("-Balance")
-  st.write("Nous avons pu identifier des relations entre certaines variables explicatives et notre variable cible :")
+  
 elif page==pages[3]:
   st.write("DataViz")
   st.write("Notre variable cible est ‘deposit’, elle renseigne si le client a fait un dépôt à terme. Les classes pour cette variable sont bien équilibrées, ce qui est positif pour la suite de nos prédictions.")
