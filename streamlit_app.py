@@ -120,8 +120,7 @@ elif page==pages[2]:
   fig12=px.histogram(bank, x='deposit', histnorm = 'percent')
   st.plotly_chart(fig12, key="bank")
   st.header("Répartition des données en fonction de la variable cible")
-  st.write("Selon nos analyses du jeu de données, nous avons remarqué que la variable la plus pertinente est la durée du contact (duration).")
-  st.write("Cette variable aura un impact important dans la modélisation car elle est la plus corrélée avec notre variable cible.")
+  st.write("La variable qui aura certainement l'impact le plus important dans la modélisation est la durée du contact (duration) car elle est la plus corrélée avec notre variable cible.")
   deposit = lambda x:1 if x=='yes' else 0
   bank['deposit_num'] = bank['deposit'].apply(deposit)
   default = lambda x:1 if x=='yes' else 0
@@ -134,11 +133,10 @@ elif page==pages[2]:
   fig, ax = plt.subplots(figsize = (10,10))
   sns.heatmap(matrice, annot=True, cmap = 'rainbow', ax = ax);
   st.write(fig)
+  st.write("Aussi nous observons que la durée de contact médian est plus élevée pour les personnes ayant souscrit un dépôt à terme.")
   fig13=px.box(bank, x='deposit', y='duration')
   st.plotly_chart(fig13, key="bank")
-  st.write("Nous avons identifier des relations entre certaines variables explicatives et notre variable cible")
-  st.write("Aussi nous observons que la durée de contact médian est plus élevée pour les personnes ayant souscrit un dépôt à terme.")
-  st.write("Les autres variables qui nous semblent les plus pertinentes sont :")
+  st.write("Nous avons identifié d'autres variables explicatives qui pourraient avoir un impact sur la modélisation:")
   st.write("-Age")
   st.write("-Job")
   st.write("-Month")
