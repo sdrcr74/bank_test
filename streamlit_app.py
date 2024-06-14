@@ -20,7 +20,7 @@ with st.sidebar:
         st.write("Stéphane LASCAUX")
         st.write("Van-Anh HA")
 if page==pages[0]:
-  st.header("Description du projet", divider='rainbow')
+  st.header("Description du projet")
   st.subheader("L'objectif :")
   st.write("Sur la base des données démographiques du client, sa situation financière et son précédent contact avec la banque, prédire s'il va souscrire ou non au produit Dépôt à terme.")
   st.subheader("Le jeu de données :")
