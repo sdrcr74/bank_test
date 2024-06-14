@@ -84,17 +84,17 @@ elif page==pages[2]:
     st.plotly_chart(fig1, key="bank", on_select="rerun")
     st.write("Les catégories de métier les plus représentées sont management, blue-collar et technician.")
   if Graphique_sélectionné =='Répartition par mois': 
-    fig4=px.histogram(bank,x='month').update_xaxes(categoryorder='total descending')
-    st.plotly_chart(fig4, key="bank", on_select="rerun",)
+    fig2=px.histogram(bank,x='month').update_xaxes(categoryorder='total descending')
+    st.plotly_chart(fig2, key="bank", on_select="rerun",)
     st.write("Les trimestres 2 et 3 sont ceux qui sont le plus représentés dans le jeu de donnée. Sans surprise durant le mois de décembre il y a eu très peu de contact.")
   if Graphique_sélectionné =='Répartition du nombre de contact de la dernière campagne': 
-    fig4=px.histogram(bank,x='previous')
-    st.plotly_chart(fig4, key="bank", on_select="rerun")
+    fig3=px.histogram(bank,x='previous')
+    st.plotly_chart(fig3, key="bank", on_select="rerun")
     st.write("Les clients sont en général contactés moins de 8 fois.")
   other_variable=st.selectbox(label="Autres variables", options=['Répartition par statut marital','Répartition par éducation','Répartition par défauts de paiement', 'Répartition par prêt immobilier','Répartition des prêts à la conso','Répartition par type de contact','Résultat sur la dernière campagne marketing'])
   if other_variable =='Répartition par statut marital': 
-    fig5=px.histogram(bank, x='marital')
-    st.plotly_chart(fig5, key="bank", on_select="rerun")
+    fig4=px.histogram(bank, x='marital')
+    st.plotly_chart(fig4, key="bank", on_select="rerun")
   if Graphique_sélectionné1 =='Répartition par éducation': 
     fig6=px.histogram(bank, x='education')
     st.plotly_chart(fig6, key="bank", on_select="rerun")
