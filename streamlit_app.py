@@ -3,17 +3,32 @@ import pandas as pd
 import plotly.express as px
 import matplotlib.pyplot as plt
 import seaborn as sns
-bank=pd.read_csv("bank.csv")
-st.title("Bank Marketing Campaign")
+
+url = 'https://raw.githubusercontent.com/sdrcr74/bank_nov23/main/bank.csv'
+bank = pd.read_csv(url)
+st.image("https://raw.githubusercontent.com/sdrcr74/bank_nov23/main/logo2.jpeg")
+st.markdown("<h1 style='text-align: justify;'>Prédiction du succès d une campagne de Marketing d’une banque</h1>", unsafe_allow_html=True)
+st.subheader("Maxence Malherre, Sophie Dorcier, Stéphane Lascaux, Van-Anh HA")
+st.subheader("NOV23_CONTINU_DA - Datascientest", divider='rainbow')
+st.divider()
 st.sidebar.title("Sommaire")
-pages=["Contexte du projet","Exploration des données","Analyse des données","DataViz","Modélisation","Conclusion"]
+pages=["Le projet & jeu de données","Analyse & Datavisualisation","Préparation des données","Modélisation","Conclusion"]
 page=st.sidebar.radio("Aller à la page:", pages)
 if page==pages[0]:
-  st.write("Contexte du projet")
-  st.write("L’objectif du projet est d’établir un modèle permettant de prédire le succès d’une campagne marketing d’une banque. Concrètement, il s’agit de prédire si suite à la campagne, un client souscrit ou non au produit Dépôt à terme.")
-  st.write("Le jeu de données qui nous a été mis à disposition s’appelle “Bank Marketing Dataset”. Ce jeu de données est disponible librement sur Kaggle, mais à la base il vient de la UC Irvine Machine Learning Repository. Ce sont des données liées aux campagnes de marketing direct d’une banque portugaise. Il date de 2012.Il contient 11 162 lignes de données et 17 colonnes.")
-  st.write("Dans un premier temps, nous étudierons les différentes variables puis analyserons le dataset et procéderons à un nettoyage des données: doublons, données manquantes, pertinence des différentes variables.")
-  st.image("banking.jpg")
+  st.header("Description du projet", divider='rainbow')
+  st.subheader("L'objectif :")
+  st.write("Sur la base des données démographiques du client, sa situation financière et son précédent contact avec la banque, prédire s'il va souscrire ou non au produit Dépôt à terme.")
+  st.subheader("Le jeu de données :")
+  st.write("Description du contenu : Données personnelles issues des campagnes de marketing direct d’une banque portugaise.")
+  st.write("Périmètre temporel : 2012")
+  st.write("Source : UC Irvine Machine Learning Repository, mise à disposition sur Kaggle")
+  st.write("Dimension : 11 162 lignes & 17 colonnes")
+  st.write("Définition des variables :")
+  url2 = 'https://raw.githubusercontent.com/sdrcr74/bank_nov23/main/Liste%20variable.csv'
+  liste_variable = pd.read_csv(url2, sep =";", index_col = None)
+  st.write(liste_variable)
+  st.write("Dans un premier temps, nous étudierons les différentes variables à travers les visualisations. Dans un deuxième temps, nous procéderons aux préparations de données nécessaires permettant de les modéliser par la suite.")
+  st.image("https://raw.githubusercontent.com/sdrcr74/bank_nov23/main/banking.jpg")
 elif page==pages[1]:
   st.write('Exploration des données')
   st.write("Avant d'explorer les données du dataset, il nous a semblé pertinent de comprendre les différentes variables présentes dans le jeu de données.") 
@@ -48,7 +63,7 @@ elif page==pages[1]:
     st.dataframe(len(bank[bank['balance'] < 0]))
 elif page==pages[2]:
   st.write("Analyse des données")
-  Graphique_sélectionné=st.sidebar.selectbox(label="Graphique", options=['Répartition par âge','Répartition par métier','Répartition par statut marital','Répartition par éducation','Répartition par mois','Répartition par défauts de paiement', 'Répartition par prêt immobilier','Répartition des prêts à la conso','Répartition par type de contact','Résultat sur la dernière campagne marketing','Répartition du nombre de dépôts à terme','Répartition du nombre de contact de la dernière campagne','Répartition des types de métier en fonction des dépôts à terme'])
+  Graphique_sélectionné=st.sidebar.selectbox(label="Graphique", options=['Répartition par âge','Répartition par métier','Répartition par statut marital','Répartition par éducation','Répartition par mois','Répartition par défauts de paiement', 'Répartition par prêt immobilier','Répartition des prêts à la conso','Répartition par type de contact','Résultat sur la dernière campagne marketing','Répartition du nombre de dépôts à terme','Répartition du nombre de contact de la dernière campagne'])
   if Graphique_sélectionné =='Répartition par âge':   
     fig=sns.displot(x='age', data=bank)
     plt.title('Répartition par âge')
@@ -98,7 +113,6 @@ elif page==pages[2]:
     fig11=sns.displot(x='previous', data=bank, stat = 'percent')
     plt.title('Répartition du nombre de contact de la dernière campagne')
     st.pyplot(fig11)
-  
   if Graphique_sélectionné=='Répartition des types de métier en fonction des dépôts à terme':
     b_df = pd.DataFrame()
     b_df['yes'] = bank[bank['deposit'] == 'yes']['job'].value_counts()
@@ -160,104 +174,105 @@ elif page==pages[3]:
     plt.title("Dépôt à terme en fonction de l'age");
     st.pyplot(fig17.fig)
 
-bank_cleaned = bank.drop(bank.loc[bank["job"] == "unknown"].index, inplace=True)
-bank_cleaned = bank.drop(bank.loc[bank["education"] == "unknown"].index, inplace=True)
-bank_cleaned = bank.drop(['contact', 'pdays'], axis = 1)
+  bank_cleaned = bank.drop(bank.loc[bank["job"] == "unknown"].index, inplace=True)
+  bank_cleaned = bank.drop(bank.loc[bank["education"] == "unknown"].index, inplace=True)
+  bank_cleaned = bank.drop(['contact', 'pdays'], axis = 1)
   
   
-from sklearn.model_selection import train_test_split
-from sklearn.preprocessing import StandardScaler
-from sklearn.preprocessing import LabelEncoder
-from sklearn.preprocessing import OneHotEncoder
-from sklearn.metrics import f1_score
-from imblearn.over_sampling import RandomOverSampler
-from sklearn.compose import ColumnTransformer
-from sklearn.pipeline import Pipeline
-from sklearn.impute import SimpleImputer
-feats = bank_cleaned.drop(['deposit'], axis = 1)
-target = bank_cleaned['deposit']
-X_train, X_test, y_train, y_test = train_test_split(feats, target, test_size = 0.2, random_state=42)
-scaler = StandardScaler()
-cols = ['age','balance','day','campaign','previous','duration']
+  from sklearn.model_selection import train_test_split
+  from sklearn.preprocessing import StandardScaler
+  from sklearn.preprocessing import LabelEncoder
+  from sklearn.preprocessing import OneHotEncoder
+  from sklearn.metrics import f1_score
+  from imblearn.over_sampling import RandomOverSampler
+  from sklearn.compose import ColumnTransformer
+  from sklearn.pipeline import Pipeline
+  from sklearn.impute import SimpleImputer
+  feats = bank_cleaned.drop(['deposit'], axis = 1)
+  target = bank_cleaned['deposit']
+  X_train, X_test, y_train, y_test = train_test_split(feats, target, test_size = 0.2, random_state=42)
+  scaler = StandardScaler()
+  cols = ['age','balance','day','campaign','previous','duration']
 
-X_train[cols] = scaler.fit_transform(X_train[cols])
-X_test[cols] = scaler.transform(X_test[cols])
+  X_train[cols] = scaler.fit_transform(X_train[cols])
+  X_test[cols] = scaler.transform(X_test[cols])
   
-def replace_yes_no(x):
-  if x == 'no':
-    return 0
-  if x == 'yes':
-    return 1
+  def replace_yes_no(x):
+    if x == 'no':
+      return 0
+    if x == 'yes':
+      return 1
 
-X_train['default'] = X_train['default'].apply(replace_yes_no)
-X_test['default'] = X_test['default'].apply(replace_yes_no)
+  X_train['default'] = X_train['default'].apply(replace_yes_no)
+  X_test['default'] = X_test['default'].apply(replace_yes_no)
 
-X_train['housing'] = X_train['housing'].apply(replace_yes_no)
-X_test['housing'] = X_test['housing'].apply(replace_yes_no)
+  X_train['housing'] = X_train['housing'].apply(replace_yes_no)
+  X_test['housing'] = X_test['housing'].apply(replace_yes_no)
 
-X_train['loan'] = X_train['loan'].apply(replace_yes_no)
-X_test['loan'] = X_test['loan'].apply(replace_yes_no)
+  X_train['loan'] = X_train['loan'].apply(replace_yes_no)
+  X_test['loan'] = X_test['loan'].apply(replace_yes_no)
 
-def replace_month(x):
-  if x == 'jan':
-    return 1
-  if x == 'feb':
-    return 2
-  if x == 'mar':
-    return 3
-  if x == 'apr':
-    return 4
-  if x == 'may':
-    return 5
-  if x == 'jun':
-    return 6
-  if x == 'jul':
-    return 7
-  if x == 'aug':
-    return 8
-  if x == 'sep':
-    return 9
-  if x == 'oct':
-    return 10
-  if x == 'nov':
-    return 11
-  if x == 'dec':
-    return 12
+  def replace_month(x):
+    if x == 'jan':
+      return 1
+    if x == 'feb':
+      return 2
+    if x == 'mar':
+      return 3
+    if x == 'apr':
+      return 4
+    if x == 'may':
+      return 5
+    if x == 'jun':
+      return 6
+    if x == 'jul':
+      return 7
+    if x == 'aug':
+      return 8
+    if x == 'sep':
+      return 9
+    if x == 'oct':
+      return 10
+    if x == 'nov':
+      return 11
+    if x == 'dec':
+      return 12
 
-X_train['month'] = X_train['month'].apply(replace_month)
-X_test['month'] = X_test['month'].apply(replace_month)
-X_train = pd.get_dummies(X_train, dtype = 'int')
-X_test= pd.get_dummies(X_test, dtype = 'int')
-le = LabelEncoder()
+  X_train['month'] = X_train['month'].apply(replace_month)
+  X_test['month'] = X_test['month'].apply(replace_month)
+  X_train = pd.get_dummies(X_train, dtype = 'int')
+  X_test= pd.get_dummies(X_test, dtype = 'int')
+  le = LabelEncoder()
 
-y_train = le.fit_transform(y_train)
-y_test = le.transform(y_test)
-from sklearn.linear_model import LogisticRegression
-reglog = LogisticRegression(random_state=42)
-reglog.fit(X_train, y_train)
-print('Accuracy score du Logistic regression (train) : ',reglog.score(X_train, y_train))
-from sklearn.ensemble import RandomForestClassifier
+  y_train = le.fit_transform(y_train)
+  y_test = le.transform(y_test)
+  from sklearn.linear_model import LogisticRegression
+  reglog = LogisticRegression(random_state=42)
+  reglog.fit(X_train, y_train)
+  print('Accuracy score du Logistic regression (train) : ',reglog.score(X_train, y_train))
+  from sklearn.ensemble import RandomForestClassifier
 
-forest = RandomForestClassifier(random_state=42)
-forest.fit(X_train, y_train)
-print('Accuracy score du Random Forest (train) : ',forest.score(X_train, y_train))
-from sklearn.tree import DecisionTreeClassifier
+  forest = RandomForestClassifier(random_state=42)
+  forest.fit(X_train, y_train)
+  print('Accuracy score du Random Forest (train) : ',forest.score(X_train, y_train))
+  from sklearn.tree import DecisionTreeClassifier
 
-treecl = DecisionTreeClassifier(random_state=42)
-treecl.fit(X_train,y_train)
+  treecl = DecisionTreeClassifier(random_state=42)
+  treecl.fit(X_train,y_train)
 
-print('Accuracy score du Decision Tree (train) : ',treecl.score(X_train, y_train))
+  print('Accuracy score du Decision Tree (train) : ',treecl.score(X_train, y_train))
 
-if page==pages[4]:
-    st.write('Modélisation')
-    modèle_sélectionné=st.selectbox(label="Modèle", options=['Régression logistique','Decision Tree','Random Forest'])
+elif page==pages[4]:
+  st.write('Modélisation')
+  modèle_sélectionné=st.selectbox(label="Modèle", options=['Régression logistique','Decision Tree','Random Forest'])
 
-if modèle_sélectionné=='Régression logistique':
+  if modèle_sélectionné=='Régression logistique':
     st.metric(label="accuracy", value=reglog.score(X_train, y_train))
   
-if modèle_sélectionné=='Decision Tree':
+  if modèle_sélectionné=='Decision Tree':
     st.metric(label="accuracy", value= treecl.score(X_train, y_train))
 
-if modèle_sélectionné=='Random Forest':
-    st.metric(label="accuracy", value=forest.score(X_train, y_train))# -*- coding: utf-8 -*-
-
+  if modèle_sélectionné=='Random Forest':
+    st.metric(label="accuracy", value=forest.score(X_train, y_train))
+  fig12=px.scatter(bank,x="balance",y="age", color='deposit', title='Relation Age, balance et Deposit')
+  st.plotly_chart(fig12)
