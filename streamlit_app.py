@@ -85,11 +85,13 @@ elif page==pages[2]:
     st.plotly_chart(fig1, key="bank", on_select="rerun")
     st.write("Les catégories de métier les plus représentées sont management, blue-collar et technician.")
   if Graphique_sélectionné =='Répartition par mois': 
-    fig4=px.histogram(bank,x='month')
-    st.plotly_chart(fig4, key="bank", on_select="rerun")
+    fig4=px.histogram(bank,x='month').update_xaxes(categoryorder='total descending')
+    st.plotly_chart(fig4, key="bank", on_select="rerun",)
+    st.write("Les mois de contact les plus représentés dans le jeu de données sont  .")
   if Graphique_sélectionné =='Répartition du nombre de contact de la dernière campagne': 
     fig4=px.histogram(bank,x='previous')
     st.plotly_chart(fig4, key="bank", on_select="rerun")
+    st.write("Les clients sont en général contactés moins de 8 fois.")
   
 elif page==pages[3]:
   st.write("DataViz")
