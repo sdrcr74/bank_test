@@ -79,7 +79,7 @@ elif page==pages[2]:
   if Graphique_sélectionné =='Répartition par âge':   
     fig=px.histogram(bank, x='age')
     st.plotly_chart(fig, key="bank", on_select="rerun")
-    st.write(xxxxx)
+    st.write("xxxxx")
   if Graphique_sélectionné =='Répartition par métier':    
     fig1=px.histogram(bank, x='job')
     st.plotly_chart(fig1, key="bank", on_select="rerun")
