@@ -113,7 +113,9 @@ elif page==pages[2]:
   if Graphique_sélectionné1 =='Résultat sur la dernière campagne marketing': 
     fig11=px.histogram(bank, x='poutcome', histnorm = 'percent')
     st.plotly_chart(fig11, key="bank")
-  
+st.write("Notre variable cible est ‘deposit’, elle renseigne si le client a fait un dépôt à terme. Les classes pour cette variable sont bien équilibrées, ce qui est positif pour la suite de nos prédictions.")    
+fig12=px.histogram(bank, x='deposit', histnorm = 'percent')
+st.plotly_chart(fig12, key="bank")      
 elif page==pages[3]:
   st.write("DataViz")
   st.write("Notre variable cible est ‘deposit’, elle renseigne si le client a fait un dépôt à terme. Les classes pour cette variable sont bien équilibrées, ce qui est positif pour la suite de nos prédictions.")
