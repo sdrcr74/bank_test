@@ -26,8 +26,8 @@ if page==pages[0]:
   st.write("L’objectif du projet est d’établir un modèle permettant de prédire le succès d’une campagne marketing d’une banque.")
   st.write("Concrétement il s'agit de prédire, sur la base des données démographiques du client, sa situation financière et son précédent contact avec la banque, s'il va souscrire ou non au produit Dépôt à terme.")
   st.write("Le jeu de données qui nous a été mis à disposition s’appelle 'Bank Marketing Dataset'. Ce jeu de données est disponible librement sur [Kaggle] (https://www.kaggle.com/datasets/janiobachmann/bank-marketing-dataset)")
-  
   st.write("Ce Streamlit illustre notre approche, allant de l'exploration des données à la création du modèle prédictif.")
+  st.image("https://raw.githubusercontent.com/sdrcr74/bank_nov23/main/banking.jpg")
 elif page==pages[1]:
   st.subheader("Le jeu de données :")
   st.write("Description du contenu : Données personnelles issues des campagnes de marketing direct d’une banque portugaise.")
@@ -39,7 +39,6 @@ elif page==pages[1]:
   liste_variable = pd.read_csv(url2, sep =";", index_col = None)
   st.write(liste_variable)
   st.write("Dans un premier temps, nous étudierons les différentes variables à travers les visualisations. Dans un deuxième temps, nous procéderons aux préparations de données nécessaires permettant de les modéliser par la suite.")
-  st.image("https://raw.githubusercontent.com/sdrcr74/bank_nov23/main/banking.jpg")
   st.write('Exploration des données')
   st.write("Avant d'explorer les données du dataset, il nous a semblé pertinent de comprendre les différentes variables présentes dans le jeu de données.") 
   st.write("Pour la plupart, l'intitulé des variables était clair et compréhensible. Nous allons cependant clarifier certaines variables:") 
