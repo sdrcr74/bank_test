@@ -83,25 +83,25 @@ elif page==pages[2]:
     fig1=px.histogram(bank, x='job')
     st.plotly_chart(fig1, key="bank", on_select="rerun")
   if Graphique_sélectionné =='Répartition par statut marital': 
-    fig2=px.histogram(x='marital',bank)
+    fig2=px.histogram(bank, x='marital')
     st.plotly_chart(fig2, key="bank", on_select="rerun")
   if Graphique_sélectionné =='Répartition par éducation': 
-    fig3=px.histogram(x='education',bank)
+    fig3=px.histogram(bank, x='education')
     st.plotly_chart(fig3, key="bank", on_select="rerun")
   if Graphique_sélectionné =='Répartition par mois': 
-    fig4=px.histogram(x='month', bank)
+    fig4=px.histogram(bank,x='month')
     st.plotly_chart(fig4, key="bank", on_select="rerun")
   if Graphique_sélectionné =='Répartition par défauts de paiement': 
-    fig5=px.histogram(x='default', bank)
+    fig5=px.histogram(bank,x='default')
     st.plotly_chart(fig5, key="bank", on_select="rerun")
   if Graphique_sélectionné =='Répartition par prêt immobilier': 
-    fig6=px.histogram(x='housing',bank)
+    fig6=px.histogram(bank, x='housing')
     st.plotly_chart(fig6, key="bank", on_select="rerun")
   if Graphique_sélectionné =='Répartition des prêts à la conso': 
-    fig7=px.histogram(x='loan',bank)  
+    fig7=px.histogram(bank,x='loan')  
     st.plotly_chart(fig7, key="bank", on_select="rerun")
   if Graphique_sélectionné =='Répartition par type de contact': 
-    fig8=px.histogram(x='contact', bank, stat = 'percent')
+    fig8=px.histogram(bank, x='contact', stat = 'percent')
     st.plotly_chart(fig8, key="bank", on_select="rerun")
   if Graphique_sélectionné =='Résultat sur la dernière campagne marketing': 
     fig9=sns.displot(x='poutcome', data=bank, stat = 'percent')
