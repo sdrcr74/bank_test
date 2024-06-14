@@ -115,7 +115,19 @@ elif page==pages[2]:
     st.plotly_chart(fig11, key="bank")
   st.write("Notre variable cible est ‘deposit’, elle renseigne si le client a fait un dépôt à terme. Les classes pour cette variable sont bien équilibrées, ce qui est positif pour la suite de nos prédictions.")    
   fig12=px.histogram(bank, x='deposit', histnorm = 'percent')
-  st.plotly_chart(fig12, key="bank")      
+  st.plotly_chart(fig12, key="bank")
+  st.header("Répartition des données en fonction de la variable cible")
+  st.write("Selon nos analyses du jeu de données, nous avons remarqué que la variable la plus pertinente est la durée du contact (duration).")
+  deposit = lambda x:1 if x=='yes' else 0
+  bank['deposit_num'] = bank['deposit'].apply(deposit)
+  default = lambda x:1 if x=='yes' else 0
+  bank['default_num'] = bank['default'].apply(default)
+  housing = lambda x:1 if x=='yes' else 0
+  bank['housing_num'] = bank['housing'].apply(housing)
+  loan = lambda x:1 if x=='yes' else 0
+  bank['loan_num'] = bank['loan'].apply(loan)
+  fig13 = px.imshow(bank)
+  st.plotly_chart(fig13, key="bank")
 elif page==pages[3]:
   st.write("DataViz")
   st.write("Notre variable cible est ‘deposit’, elle renseigne si le client a fait un dépôt à terme. Les classes pour cette variable sont bien équilibrées, ce qui est positif pour la suite de nos prédictions.")
@@ -127,7 +139,7 @@ elif page==pages[3]:
   st.write("-Balance")
   st.write("Notre variable cible est ‘deposit’, elle renseigne si le client a fait un dépôt à terme. Les classes pour cette variable sont bien équilibrées, ce qui est positif pour la suite de nos prédictions.")         
   st.write("Nous avons pu identifier des relations entre certaines variables explicatives et notre variable cible :")
-  
+  st.write("La durée de contact (duration) aura un impact important dans la modélisation. En effet, nous remarquons que cette variable est la plus corrélée avec notre variable cible.")
   Graphique=st.selectbox(label="",options=['Heatmap',"Dépôt à terme en fonction de la durée du contact","Répartition par mois en fonction du dépôt à terme",'Relation Age, balance et Deposit',"Dépôt à terme en fonction de l'age"])
   if Graphique=='Heatmap':
     st.write("La durée de contact (duration) aura un impact important dans la modélisation. En effet, nous remarquons que cette variable est la plus corrélée avec notre variable cible.")
