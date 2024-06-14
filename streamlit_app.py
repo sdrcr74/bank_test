@@ -7,7 +7,7 @@ import seaborn as sns
 url = 'https://raw.githubusercontent.com/sdrcr74/bank_nov23/main/bank.csv'
 bank = pd.read_csv(url)
 st.image("https://raw.githubusercontent.com/sdrcr74/bank_test/main/datascientest_logo.png")
-st.header(<div style="text-align: center">"Prédiction du succès d'une campagne de Marketing d’une banque"</div>)
+st.markdown(<div style="text-align: center">"Prédiction du succès d'une campagne de Marketing d’une banque"</div>)
 st.subheader("NOV23_CONTINU_DA - Datascientest", divider='blue')
 st.divider()
 st.sidebar.title("Sommaire")
