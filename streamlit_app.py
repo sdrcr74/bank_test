@@ -118,6 +118,7 @@ elif page==pages[2]:
   st.plotly_chart(fig12, key="bank")
   st.header("Répartition des données en fonction de la variable cible")
   st.write("Selon nos analyses du jeu de données, nous avons remarqué que la variable la plus pertinente est la durée du contact (duration).")
+  st.write("Cette variable aura un impact important dans la modélisation car elle est la plus corrélée avec notre variable cible.")
   deposit = lambda x:1 if x=='yes' else 0
   bank['deposit_num'] = bank['deposit'].apply(deposit)
   default = lambda x:1 if x=='yes' else 0
@@ -130,7 +131,8 @@ elif page==pages[2]:
   fig, ax = plt.subplots(figsize = (10,10))
   sns.heatmap(matrice, annot=True, cmap = 'rainbow', ax = ax);
   st.write(fig)
-  st.write("La durée de contact (duration) aura un impact important dans la modélisation. En effet, nous remarquons que cette variable est la plus corrélée avec notre variable cible.")
+  fig13=px.box(bank, x='deposit', y='duration')
+  st.plotly_chart(fig11, key="bank")
   st.write("Les autres variables qui nous semblent les plus pertinentes sont :")
   st.write("-Age")
   st.write("-Job")
