@@ -73,8 +73,7 @@ elif page==pages[1]:
 
 elif page==pages[2]:
   st.header("Visualisation")
-  st.write("Dans cette partie nous avons sélectionné les quelques visusalisations qui permettent, selon nous, une meilleure appréhension du jeu de données. 
-  Dans un premier temps nous avons fait une analyse de la distribution des variables et ensuite nous avons visualisé la répartition des données en fonction de la variable cible.")
+  st.write("Dans cette partie nous avons sélectionné les quelques visusalisations qui permettent, selon nous, une meilleure appréhension du jeu de données. Dans un premier temps nous avons fait une analyse de la distribution des variables et ensuite nous avons visualisé la répartition des données en fonction de la variable cible.")
   st.write("Selon nos analyses, nous avons remarqué que la variable la plus pertinent est la durée du contact (duration)")
   st.write("Distribution des variables")
   Graphique_sélectionné=st.sidebar.selectbox(label="Graphique", options=['Répartition par âge','Répartition par métier','Répartition par statut marital','Répartition par éducation','Répartition par mois','Répartition par défauts de paiement', 'Répartition par prêt immobilier','Répartition des prêts à la conso','Répartition par type de contact','Résultat sur la dernière campagne marketing','Répartition du nombre de dépôts à terme','Répartition du nombre de contact de la dernière campagne'])
