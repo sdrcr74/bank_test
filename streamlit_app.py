@@ -126,8 +126,9 @@ elif page==pages[2]:
   bank['housing_num'] = bank['housing'].apply(housing)
   loan = lambda x:1 if x=='yes' else 0
   bank['loan_num'] = bank['loan'].apply(loan)
-  fig13= px.imshow(bank,labels=dict(x="Features", y="Features", color="Correlation"),x=bank.columns,y=bank.columns,color_continuous_scale='RdBu_r',zmin=-1, zmax=1)
+  fig13= px.imshow(bank,x=bank.columns,y=bank.columns,color_continuous_scale='RdBu_r',zmin=-1, zmax=1)
   st.plotly_chart(fig13, key="bank")
+        
 elif page==pages[3]:
   st.write("DataViz")
   st.write("Notre variable cible est ‘deposit’, elle renseigne si le client a fait un dépôt à terme. Les classes pour cette variable sont bien équilibrées, ce qui est positif pour la suite de nos prédictions.")
