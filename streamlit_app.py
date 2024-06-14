@@ -93,8 +93,8 @@ elif page==pages[2]:
     st.write("Les clients sont en général contactés moins de 8 fois.")
   Graphique_sélectionné1=st.selectbox(label="Autres variables", options=['Répartition par statut marital','Répartition par éducation','Répartition par défauts de paiement', 'Répartition par prêt immobilier','Répartition des prêts à la conso','Répartition par type de contact','Résultat sur la dernière campagne marketing'])
   if Graphique_sélectionné1 =='Répartition par statut marital': 
-    fig20=px.histogram(bank, x='marital')
-    st.plotly_chart(fig20, key="bank", on_select="rerun")
+    graph=px.histogram(bank, x='marital')
+    st.plotly_chart(graph, key="bank", on_select="rerun")
   if Graphique_sélectionné1 =='Répartition par éducation': 
     fig6=px.histogram(bank, x='education')
     st.plotly_chart(fig6, key="bank", on_select="rerun")
