@@ -101,7 +101,7 @@ elif page==pages[2]:
     fig7=px.histogram(bank,x='loan')  
     st.plotly_chart(fig7, key="bank", on_select="rerun")
   if Graphique_sélectionné =='Répartition par type de contact': 
-    fig8=px.histogram(bank, x='contact', stat = 'percent')
+    fig8=px.histogram(bank, x='contact', histnorm='percent')
     st.plotly_chart(fig8, key="bank", on_select="rerun")
   if Graphique_sélectionné =='Résultat sur la dernière campagne marketing': 
     fig9=sns.displot(x='poutcome', data=bank, stat = 'percent')
