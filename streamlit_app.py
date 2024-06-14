@@ -92,7 +92,8 @@ elif page==pages[2]:
     fig3=px.histogram(bank,x='previous')
     st.plotly_chart(fig3, key="bank", on_select="rerun")
     st.write("Les clients sont en général contactés moins de 8 fois.")
-  Graphique_sélectionné1=st.selectbox(label="Autres variables", options=['Répartition par statut marital','Répartition par éducation','Répartition par défauts de paiement', 'Répartition par prêt immobilier','Répartition des prêts à la conso','Répartition par type de contact','Résultat sur la dernière campagne marketing'])
+  st.subheader("Variables secondaires")
+  Graphique_sélectionné1=st.selectbox(label="Graphiques", options=['Répartition par statut marital','Répartition par éducation','Répartition par défauts de paiement', 'Répartition par prêt immobilier','Répartition des prêts à la conso','Répartition par type de contact','Résultat sur la dernière campagne marketing'])
   if Graphique_sélectionné1 =='Répartition par statut marital': 
     fig4=px.histogram(bank, x='marital')
     st.plotly_chart(fig4, key="bank")
@@ -114,6 +115,7 @@ elif page==pages[2]:
   if Graphique_sélectionné1 =='Résultat sur la dernière campagne marketing': 
     fig11=px.histogram(bank, x='poutcome', histnorm = 'percent')
     st.plotly_chart(fig11, key="bank")
+  st.subheader("Variable cible")
   st.write("Notre variable cible est ‘deposit’, elle renseigne si le client a fait un dépôt à terme. Les classes pour cette variable sont bien équilibrées, ce qui est positif pour la suite de nos prédictions.")    
   fig12=px.histogram(bank, x='deposit', histnorm = 'percent')
   st.plotly_chart(fig12, key="bank")
