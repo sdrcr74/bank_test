@@ -88,7 +88,7 @@ elif page==pages[2]:
     fig4=px.histogram(bank,x='month')
     st.plotly_chart(fig4, key="bank", on_select="rerun")
   if Graphique_sélectionné =='Répartition du nombre de contact de la dernière campagne': 
-    fig4=px.histogram(bank,y='previous')
+    fig4=px.box(bank,y='previous')
     st.plotly_chart(fig4, key="bank", on_select="rerun")
   
 elif page==pages[3]:
