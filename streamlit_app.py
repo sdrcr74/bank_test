@@ -74,7 +74,7 @@ elif page==pages[1]:
 elif page==pages[2]:
   st.write("Dans cette partie nous avons sélectionné les quelques visusalisations qui permettent, selon nous, une meilleure appréhension du jeu de données. Dans un premier temps nous avons fait une analyse de la distribution des variables et ensuite nous avons visualisé la répartition des données en fonction de la variable cible.")
   st.header("Distribution des variables")
-  Graphique_sélectionné=st.selectbox(label="Variables principales", options1=['Répartition par âge','Répartition par métier','Répartition par mois','Répartition du nombre de contact de la dernière campagne'])
+  Graphique_sélectionné=st.selectbox(label="Variables principales", options=['Répartition par âge','Répartition par métier','Répartition par mois','Répartition du nombre de contact de la dernière campagne'])
   if Graphique_sélectionné =='Répartition par âge':   
     fig=px.histogram(bank, x='age')
     st.plotly_chart(fig, key="bank", on_select="rerun")
@@ -95,22 +95,22 @@ elif page==pages[2]:
   if Graphique_sélectionné1 =='Répartition par statut marital': 
     fig20=px.histogram(bank, x='marital')
     st.plotly_chart(fig20, key="bank", on_select="rerun")
-  if Graphique_sélectionné =='Répartition par éducation': 
+  if Graphique_sélectionné1 =='Répartition par éducation': 
     fig6=px.histogram(bank, x='education')
     st.plotly_chart(fig6, key="bank", on_select="rerun")
-  if other_variable =='Répartition par défauts de paiement': 
+  if Graphique_sélectionné1 =='Répartition par défauts de paiement': 
     fig7=px.histogram(bank,x='default')
     st.plotly_chart(fig7, key="bank", on_select="rerun")
-  if other_variable =='Répartition par prêt immobilier': 
+  if Graphique_sélectionné1 =='Répartition par prêt immobilier': 
     fig8=px.histogram(bank, x='housing')
     st.plotly_chart(fig8, key="bank", on_select="rerun")
-  if other_variable =='Répartition des prêts à la conso': 
+  if Graphique_sélectionné1 =='Répartition des prêts à la conso': 
     fig9=px.histogram(bank,x='loan')  
     st.plotly_chart(fig9, key="bank", on_select="rerun")
-  if other_variable =='Répartition par type de contact': 
+  if Graphique_sélectionné1 =='Répartition par type de contact': 
     fig10=px.histogram(bank, x='contact', histnorm='percent')
     st.plotly_chart(fig10, key="bank", on_select="rerun")
-  if other_variable =='Résultat sur la dernière campagne marketing': 
+  if Graphique_sélectionné1 =='Résultat sur la dernière campagne marketing': 
     fig11=px.histogram(bank, x='poutcome', histnorm = 'percent')
     st.plotly_chart(fig11, key="bank", on_select="rerun")
   
