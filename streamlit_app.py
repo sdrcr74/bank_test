@@ -4,7 +4,7 @@ import plotly.express as px
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-url = 'https://raw.githubusercontent.com/sdrcr74/bank_test/main/bank.csv'
+url = 'https://raw.githubusercontent.com/sdrcr74/bank_nov23/main/bank.csv'
 bank = pd.read_csv(url)
 st.image("https://raw.githubusercontent.com/sdrcr74/bank_test/main/datascientest_logo.png")
 st.markdown("<h1 style='text-align: justify;'>Prédiction du succès d une campagne de Marketing d’une banque</h1>", unsafe_allow_html=True)
