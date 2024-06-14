@@ -87,7 +87,7 @@ elif page==pages[2]:
   if Graphique_sélectionné =='Répartition par mois': 
     fig4=px.histogram(bank,x='month').update_xaxes(categoryorder='total descending')
     st.plotly_chart(fig4, key="bank", on_select="rerun",)
-    st.write("Les mois de contact les plus représentés dans le jeu de données sont  .")
+    st.write("Les trimestres 2 et 3 sont ceux qui sont le plus représentés dans le jeu de donnée. Sans surprise durant le mois de décembre il y a eu très peu de contact.")
   if Graphique_sélectionné =='Répartition du nombre de contact de la dernière campagne': 
     fig4=px.histogram(bank,x='previous')
     st.plotly_chart(fig4, key="bank", on_select="rerun")
