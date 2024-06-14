@@ -15,7 +15,9 @@ st.sidebar.title("Sommaire")
 pages=["Le projet & jeu de données","Analyse & Datavisualisation","Préparation des données","Modélisation","Conclusion"]
 page=st.sidebar.radio("Aller à la page:", pages)
 st.sidebar.title("Auteurs")
-st.sidebar["Maxence"]
+with st.sidebar:
+    with st.echo():
+        st.write("Maxence")
 if page==pages[0]:
   st.header("Description du projet", divider='rainbow')
   st.subheader("L'objectif :")
