@@ -75,16 +75,20 @@ elif page==pages[2]:
   st.write("Dans cette partie nous avons sélectionné les quelques visusalisations qui permettent, selon nous, une meilleure appréhension du jeu de données. Dans un premier temps nous avons fait une analyse de la distribution des variables et ensuite nous avons visualisé la répartition des données en fonction de la variable cible.")
   st.header("Distribution des variables")
   st.write("Selon nos analyses, nous avons remarqué que la variable la plus pertinente est la durée du contact (duration). Les autres variables qui nous semblent intéressantes à étudier sont l'âge, le métier, les mois de contact ainsi que le solde du compte.")
-  Graphique_sélectionné=st.selectbox(label="Graphiques principaux", options=['Répartition par âge','Répartition par métier','Répartition par mois'])
+  Graphique_sélectionné=st.selectbox(label="Variables principales", options=['Répartition par âge','Répartition par métier','Répartition par mois','Répartition du nombre de contact de la dernière campagne'])
   if Graphique_sélectionné =='Répartition par âge':   
     fig=px.histogram(bank, x='age')
     st.plotly_chart(fig, key="bank", on_select="rerun")
-    st.write("xxxxx")
+    st.write("La tranche d'âge la plus représentée est les 30-40 ans")
   if Graphique_sélectionné =='Répartition par métier':    
     fig1=px.histogram(bank, x='job')
     st.plotly_chart(fig1, key="bank", on_select="rerun")
+    st.write("Les catégories de métier les plus représentées sont management, blue-collar et technician.")
   if Graphique_sélectionné =='Répartition par mois': 
     fig4=px.histogram(bank,x='month')
+    st.plotly_chart(fig4, key="bank", on_select="rerun")
+  if Graphique_sélectionné =='Répartition du nombre de contact de la dernière campagne': 
+    fig4=px.box(bank,y='previous')
     st.plotly_chart(fig4, key="bank", on_select="rerun")
   
 elif page==pages[3]:
