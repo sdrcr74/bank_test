@@ -7,7 +7,7 @@ import seaborn as sns
 url = 'https://raw.githubusercontent.com/sdrcr74/bank_nov23/main/bank.csv'
 bank = pd.read_csv(url)
 st.markdown("<img src='https://raw.githubusercontent.com/sdrcr74/bank_test/main/datascientest_logo.png' width='100' style='display: block; margin: 0 auto;'>" , unsafe_allow_html=True)
-st.markdown("<h1 "style='text-align : center;>Prédiction du succès d'une campagne de Marketing d’une banque</h1>", unsafe_allow_html=True)
+st.markdown("<h1 style='text-align : center;'>Prédiction du succès d une campagne de Marketing d’une banque</h1>", unsafe_allow_html=True)
 st.subheader("NOV23_CONTINU_DA - Datascientest", divider='blue')
 st.divider()
 st.sidebar.title("Sommaire")
