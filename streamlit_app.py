@@ -132,7 +132,7 @@ elif page==pages[2]:
   sns.heatmap(matrice, annot=True, cmap = 'rainbow', ax = ax);
   st.write(fig)
   fig13=px.box(bank, x='deposit', y='duration')
-  st.plotly_chart(fig11, key="bank")
+  st.plotly_chart(fig13, key="bank")
   st.write("Les autres variables qui nous semblent les plus pertinentes sont :")
   st.write("-Age")
   st.write("-Job")
