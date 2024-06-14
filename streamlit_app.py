@@ -139,7 +139,12 @@ elif page==pages[2]:
   st.write("Nous avons identifié d'autres variables explicatives qui pourraient avoir un impact sur la modélisation:")
   if st.checkbox("Mois"):
           st.write("Nous remarquons des pics de refus ou de contrat accepté selon les mois.")
-          st.write('Le mois va avoir un impact, nous remarquons notamment qu’au mois de mai le volume de client contacté est le plus élevé. Le nombre de personnes n’ayant pas souscrit à un dépôt à terme est plus important sur ce mois.')
+          st.write('Beaucoup de personne ont été contactées au mois de mai mais les refus représentent une part importante.Le mois va avoir un impact, nous remarquons notamment qu’au mois de mai le volume de client contacté est le plus élevé. Le nombre de personnes n’ayant pas souscrit à un dépôt à terme est plus important sur ce mois.')
+          bank_percent = bank.copy()
+          bank_percent['month'] = bank_percent['month'].div(bank_percent['month].sum(axis=1), axis=0)
+          fig = px.bar(df_percent, x='month',color = 'deposit',text_auto=True)
+          st.plotly_chart(fig, key="bank")
+          
           fig18=px.histogram(bank,x='month', color = 'deposit', histnorm = 'percent')
           st.plotly_chart(fig18, key="bank")
   st.write("-Age")
