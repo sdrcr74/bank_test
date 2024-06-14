@@ -94,7 +94,7 @@ elif page==pages[2]:
   Graphique_sélectionné=st.selectbox(label="Autres variables", options=['Répartition par statut marital','Répartition par éducation','Répartition par défauts de paiement', 'Répartition par prêt immobilier','Répartition des prêts à la conso','Répartition par type de contact','Résultat sur la dernière campagne marketing'])
   if Graphique_sélectionné =='Répartition par statut marital': 
     fig20=px.histogram(bank, x='marital')
-    st.plotly_chart(fig4, key="bank", on_select="rerun")
+    st.plotly_chart(fig20, key="bank", on_select="rerun")
   if Graphique_sélectionné =='Répartition par éducation': 
     fig6=px.histogram(bank, x='education')
     st.plotly_chart(fig6, key="bank", on_select="rerun")
