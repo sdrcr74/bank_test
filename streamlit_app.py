@@ -23,6 +23,7 @@ if page==pages[0]:
   st.header("Description du projet")
   st.subheader("L'objectif :")
   st.write("Sur la base des données démographiques du client, sa situation financière et son précédent contact avec la banque, prédire s'il va souscrire ou non au produit Dépôt à terme.")
+elif page==pages[1]:
   st.subheader("Le jeu de données :")
   st.write("Description du contenu : Données personnelles issues des campagnes de marketing direct d’une banque portugaise.")
   st.write("Périmètre temporel : 2012")
@@ -34,7 +35,6 @@ if page==pages[0]:
   st.write(liste_variable)
   st.write("Dans un premier temps, nous étudierons les différentes variables à travers les visualisations. Dans un deuxième temps, nous procéderons aux préparations de données nécessaires permettant de les modéliser par la suite.")
   st.image("https://raw.githubusercontent.com/sdrcr74/bank_nov23/main/banking.jpg")
-elif page==pages[1]:
   st.write('Exploration des données')
   st.write("Avant d'explorer les données du dataset, il nous a semblé pertinent de comprendre les différentes variables présentes dans le jeu de données.") 
   st.write("Pour la plupart, l'intitulé des variables était clair et compréhensible. Nous allons cependant clarifier certaines variables:") 
