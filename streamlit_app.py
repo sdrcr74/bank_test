@@ -73,8 +73,10 @@ elif page==pages[1]:
 
 elif page==pages[2]:
   st.write("Dans cette partie nous avons sélectionné les quelques visusalisations qui permettent, selon nous, une meilleure appréhension du jeu de données. Dans un premier temps nous avons fait une analyse de la distribution des variables et ensuite nous avons visualisé la répartition des données en fonction de la variable cible.")
-  st.write("Selon nos analyses, nous avons remarqué que la variable la plus pertinent est la durée du contact (duration)")
   st.header("Distribution des variables")
+  st.write("Selon nos analyses, nous avons remarqué que la variable la plus pertinente est la durée du contact (duration)". Les autres variables qui nous semblent intéressantes à étudier sont l'âge, le métier, les mois de contact ainsi que le solde du compte.)
+  fig=px.histogram(bank, x='age',title='Répartition par âge')
+  st.plotly_chart(fig, key="bank", on_select="rerun")
   Graphique_sélectionné=st.selectbox(label="Graphique", options=['Répartition par âge','Répartition par métier','Répartition par statut marital','Répartition par éducation','Répartition par mois','Répartition par défauts de paiement', 'Répartition par prêt immobilier','Répartition des prêts à la conso','Répartition par type de contact','Résultat sur la dernière campagne marketing','Répartition du nombre de dépôts à terme','Répartition du nombre de contact de la dernière campagne'])
   if Graphique_sélectionné =='Répartition par âge':   
     fig=px.histogram(bank, x='age')
