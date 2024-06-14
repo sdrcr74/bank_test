@@ -130,7 +130,13 @@ elif page==pages[2]:
   fig, ax = plt.subplots(figsize = (10,10))
   sns.heatmap(matrice, annot=True, cmap = 'rainbow', ax = ax);
   st.write(fig)
-        
+  st.write("La durée de contact (duration) aura un impact important dans la modélisation. En effet, nous remarquons que cette variable est la plus corrélée avec notre variable cible.")
+  st.write("Les autres variables qui nous semblent les plus pertinentes sont :")
+  st.write("-Age")
+  st.write("-Job")
+  st.write("-Month")
+  st.write("-Balance")
+  st.write("Nous avons pu identifier des relations entre certaines variables explicatives et notre variable cible :")
 elif page==pages[3]:
   st.write("DataViz")
   st.write("Notre variable cible est ‘deposit’, elle renseigne si le client a fait un dépôt à terme. Les classes pour cette variable sont bien équilibrées, ce qui est positif pour la suite de nos prédictions.")
@@ -140,6 +146,7 @@ elif page==pages[3]:
   st.write("-Job")
   st.write("-Month")
   st.write("-Balance")
+
   st.write("Notre variable cible est ‘deposit’, elle renseigne si le client a fait un dépôt à terme. Les classes pour cette variable sont bien équilibrées, ce qui est positif pour la suite de nos prédictions.")         
   st.write("Nous avons pu identifier des relations entre certaines variables explicatives et notre variable cible :")
   st.write("La durée de contact (duration) aura un impact important dans la modélisation. En effet, nous remarquons que cette variable est la plus corrélée avec notre variable cible.")
