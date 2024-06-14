@@ -75,51 +75,17 @@ elif page==pages[2]:
   st.write("Dans cette partie nous avons sélectionné les quelques visusalisations qui permettent, selon nous, une meilleure appréhension du jeu de données. Dans un premier temps nous avons fait une analyse de la distribution des variables et ensuite nous avons visualisé la répartition des données en fonction de la variable cible.")
   st.header("Distribution des variables")
   st.write("Selon nos analyses, nous avons remarqué que la variable la plus pertinente est la durée du contact (duration). Les autres variables qui nous semblent intéressantes à étudier sont l'âge, le métier, les mois de contact ainsi que le solde du compte.")
-  fig=px.histogram(bank, x='age',title='Répartition par âge')
-  st.plotly_chart(fig, key="bank", on_select="rerun")
-  Graphique_sélectionné=st.selectbox(label="Graphique", options=['Répartition par âge','Répartition par métier','Répartition par statut marital','Répartition par éducation','Répartition par mois','Répartition par défauts de paiement', 'Répartition par prêt immobilier','Répartition des prêts à la conso','Répartition par type de contact','Résultat sur la dernière campagne marketing','Répartition du nombre de dépôts à terme','Répartition du nombre de contact de la dernière campagne'])
+  Graphique_sélectionné=st.selectbox(label="Graphiques principaux", options=['Répartition par âge','Répartition par métier','Répartition par mois'])
   if Graphique_sélectionné =='Répartition par âge':   
     fig=px.histogram(bank, x='age')
     st.plotly_chart(fig, key="bank", on_select="rerun")
   if Graphique_sélectionné =='Répartition par métier':    
     fig1=px.histogram(bank, x='job')
     st.plotly_chart(fig1, key="bank", on_select="rerun")
-  if Graphique_sélectionné =='Répartition par statut marital': 
-    fig2=px.histogram(bank, x='marital')
-    st.plotly_chart(fig2, key="bank", on_select="rerun")
-  if Graphique_sélectionné =='Répartition par éducation': 
-    fig3=px.histogram(bank, x='education')
-    st.plotly_chart(fig3, key="bank", on_select="rerun")
   if Graphique_sélectionné =='Répartition par mois': 
     fig4=px.histogram(bank,x='month')
     st.plotly_chart(fig4, key="bank", on_select="rerun")
-  if Graphique_sélectionné =='Répartition par défauts de paiement': 
-    fig5=px.histogram(bank,x='default')
-    st.plotly_chart(fig5, key="bank", on_select="rerun")
-  if Graphique_sélectionné =='Répartition par prêt immobilier': 
-    fig6=px.histogram(bank, x='housing')
-    st.plotly_chart(fig6, key="bank", on_select="rerun")
-  if Graphique_sélectionné =='Répartition des prêts à la conso': 
-    fig7=px.histogram(bank,x='loan')  
-    st.plotly_chart(fig7, key="bank", on_select="rerun")
-  if Graphique_sélectionné =='Répartition par type de contact': 
-    fig8=px.histogram(bank, x='contact', histnorm='percent')
-    st.plotly_chart(fig8, key="bank", on_select="rerun")
-  if Graphique_sélectionné =='Résultat sur la dernière campagne marketing': 
-    fig9=px.histogram(bank, x='poutcome', histnorm = 'percent')
-    st.plotly_chart(fig9, key="bank", on_select="rerun")
-  if Graphique_sélectionné =='Répartition du nombre de dépôts à terme': 
-    fig10=px.histogram(bank, x='deposit', histnorm = 'percent')
-    plt.title('Répartition du nombre de dépôts à terme')
-    st.plotly_chart(fig10, key="bank", on_select="rerun")
-  if Graphique_sélectionné =='Répartition du nombre de contact de la dernière campagne': 
-    fig11=px.histogram(bank,x='previous', histnorm = 'percent')
-    st.plotly_chart(fig11, key="bank", on_select="rerun")
-  if Graphique_sélectionné=='Répartition des types de métier en fonction des dépôts à terme':
-    b_df = pd.DataFrame()
-    b_df['yes'] = bank[bank['deposit'] == 'yes']['job'].value_counts()
-    b_df['no'] = bank[bank['deposit'] == 'no']['job'].value_counts()
-    st.pyplot(b_df.plot.bar(title = 'Job & Deposit ', color=['b','r']).figure)
+  
 elif page==pages[3]:
   st.write("DataViz")
   st.write("Notre variable cible est ‘deposit’, elle renseigne si le client a fait un dépôt à terme. Les classes pour cette variable sont bien équilibrées, ce qui est positif pour la suite de nos prédictions.")
