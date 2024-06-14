@@ -77,7 +77,8 @@ elif page==pages[2]:
   st.header("Distribution des variables")
   Graphique_sélectionné=st.selectbox(label="Graphique", options=['Répartition par âge','Répartition par métier','Répartition par statut marital','Répartition par éducation','Répartition par mois','Répartition par défauts de paiement', 'Répartition par prêt immobilier','Répartition des prêts à la conso','Répartition par type de contact','Résultat sur la dernière campagne marketing','Répartition du nombre de dépôts à terme','Répartition du nombre de contact de la dernière campagne'])
   if Graphique_sélectionné =='Répartition par âge':   
-    fig=px.histogram(bank, x='age')
+    df = px.bank.tips()
+    fig=px.histogram(df, x='age')
     st.pyplot(fig)
   if Graphique_sélectionné =='Répartition par métier':    
     fig1=sns.displot(x='job', data=bank)
