@@ -83,33 +83,26 @@ elif page==pages[2]:
     fig1=px.histogram(bank, x='job')
     st.plotly_chart(fig1, key="bank", on_select="rerun")
   if Graphique_sélectionné =='Répartition par statut marital': 
-    fig2=sns.displot(x='marital', data=bank)
-    plt.title('Répartition par statut marital')
-    st.pyplot(fig2)
+    fig2=px.histogram(x='marital',bank)
+    st.plotly_chart(fig2, key="bank", on_select="rerun")
   if Graphique_sélectionné =='Répartition par éducation': 
-    fig3=sns.displot(x='education', data=bank)
-    plt.title('Répartition par éducation')
-    st.pyplot(fig3)
+    fig3=px.histogram(x='education',bank)
+    st.plotly_chart(fig3, key="bank", on_select="rerun")
   if Graphique_sélectionné =='Répartition par mois': 
-    fig4=sns.displot(x='month', data=bank)
-    plt.title('Répartition par mois')
-    st.pyplot(fig4)
+    fig4=px.histogram(x='month', bank)
+    st.plotly_chart(fig4, key="bank", on_select="rerun")
   if Graphique_sélectionné =='Répartition par défauts de paiement': 
-    fig5=sns.displot(x='default', data=bank)
-    plt.title('Répartition par défauts de paiement')
-    st.pyplot(fig5)
+    fig5=px.histogram(x='default', bank)
+    st.plotly_chart(fig5, key="bank", on_select="rerun")
   if Graphique_sélectionné =='Répartition par prêt immobilier': 
-    fig6=sns.displot(x='housing',data=bank)
-    plt.title('Répartition par prêt immobilier')
-    st.pyplot(fig6)
+    fig6=px.histogram(x='housing',bank)
+    st.plotly_chart(fig6, key="bank", on_select="rerun")
   if Graphique_sélectionné =='Répartition des prêts à la conso': 
-    fig7=sns.displot(x='loan', data=bank)  
-    plt.title('Répartition des prêts à la conso')
-    st.pyplot(fig7)
+    fig7=px.histogram(x='loan',bank)  
+    st.plotly_chart(fig7, key="bank", on_select="rerun")
   if Graphique_sélectionné =='Répartition par type de contact': 
-    fig8=sns.displot(x='contact', data=bank, stat = 'percent')
-    plt.title('Répartition par type de contact')
-    st.pyplot(fig8)
+    fig8=px.histogram(x='contact', bank, stat = 'percent')
+    st.plotly_chart(fig8, key="bank", on_select="rerun")
   if Graphique_sélectionné =='Résultat sur la dernière campagne marketing': 
     fig9=sns.displot(x='poutcome', data=bank, stat = 'percent')
     plt.title('Résultat sur la dernière campagne marketing')
