@@ -127,9 +127,9 @@ elif page==pages[2]:
   loan = lambda x:1 if x=='yes' else 0
   bank['loan_num'] = bank['loan'].apply(loan)
   matrice = bank.corr(numeric_only = callable )
-    fig, ax = plt.subplots(figsize = (10,10))
-    sns.heatmap(matrice, annot=True, cmap = 'rainbow', ax = ax);
-    st.write(fig)
+  fig, ax = plt.subplots(figsize = (10,10))
+  sns.heatmap(matrice, annot=True, cmap = 'rainbow', ax = ax);
+  st.write(fig)
         
 elif page==pages[3]:
   st.write("DataViz")
