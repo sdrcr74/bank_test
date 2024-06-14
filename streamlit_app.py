@@ -79,7 +79,7 @@ elif page==pages[2]:
   if Graphique_sélectionné =='Répartition par âge':   
     df = px.data.bank()
     fig=px.histogram(df, x='age')
-    st.pyplot(fig)
+    st.plotly_chart(fig, key="bank", on_select="rerun")
   if Graphique_sélectionné =='Répartition par métier':    
     fig1=sns.displot(x='job', data=bank)
     plt.xticks(rotation=90)
