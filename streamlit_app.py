@@ -104,17 +104,15 @@ elif page==pages[2]:
     fig8=px.histogram(bank, x='contact', histnorm='percent')
     st.plotly_chart(fig8, key="bank", on_select="rerun")
   if Graphique_sélectionné =='Résultat sur la dernière campagne marketing': 
-    fig9=sns.displot(x='poutcome', data=bank, stat = 'percent')
-    plt.title('Résultat sur la dernière campagne marketing')
-    st.pyplot(fig9)
+    fig9=px.histogram(bank, x='poutcome', histnorm = 'percent')
+    st.plotly_chart(fig9, key="bank", on_select="rerun")
   if Graphique_sélectionné =='Répartition du nombre de dépôts à terme': 
-    fig10=sns.displot(x='deposit', data=bank, stat = 'percent')
+    fig10=px.histogram(bank, x='deposit', histnorm = 'percent')
     plt.title('Répartition du nombre de dépôts à terme')
-    st.pyplot(fig10)
+    st.plotly_chart(fig10, key="bank", on_select="rerun")
   if Graphique_sélectionné =='Répartition du nombre de contact de la dernière campagne': 
-    fig11=sns.displot(x='previous', data=bank, stat = 'percent')
-    plt.title('Répartition du nombre de contact de la dernière campagne')
-    st.pyplot(fig11)
+    fig11=px.histogram(bank,x='previous', histnorm = 'percent')
+    st.plotly_chart(fig11, key="bank", on_select="rerun")
   if Graphique_sélectionné=='Répartition des types de métier en fonction des dépôts à terme':
     b_df = pd.DataFrame()
     b_df['yes'] = bank[bank['deposit'] == 'yes']['job'].value_counts()
