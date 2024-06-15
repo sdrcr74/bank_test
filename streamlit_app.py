@@ -160,6 +160,13 @@ elif page==pages[2]:
           st.write("Elle comporte principalement la classe ‘cellular contact’. Cette variable n’apporte donc que peu de valeur ajoutée.")
           fig23=px.histogram(bank, x='contact', histnorm='percent')
           st.plotly_chart(fig23, key="bank")
+  if st.checkbox("Variable pdays"):
+          st.write("Cette variable comporte presque 75% de valeur négative (-1) que nous ne sommes pas sûrs de bien interpréter.")
+  if st.checkbox("Variable poutcome"):
+          st.write("Cette variable contient près de 80% de valeur unknown + others (certainement interprétable comme du unknown.")
+          fig24=px.histogram(bank, x='poutcome', histnorm = 'percent')
+          st.plotly_chart(fig24, key="bank")
+          
 elif page==pages[3]:
   st.write("Dans cette partie, nous allons voir quels sont les traitements que nous avons effectués sur le JDD afin de le « nettoyer » et de la préparer pour la suite.")
   
