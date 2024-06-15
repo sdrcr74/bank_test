@@ -140,7 +140,7 @@ elif page==pages[2]:
   if st.checkbox("Mois"):
           st.write("Nous remarquons des pics de refus ou de contrat accepté selon les mois.")
           st.write("Beaucoup de personne ont été contactées au mois de mai mais les refus représentent une part importante.Alors que sur les mois de mars, octobre et novembre il y a eu beaucoup moins de contact mais avec plus de résultat.")
-          fig18=px.histogram(bank,x='month', color = 'deposit', histnorm = 'percent',histfunc='percent')
+          fig18=px.histogram(bank,x='month', color = 'deposit', barnorm = 'percent')
           st.plotly_chart(fig18, key="bank")
   if st.checkbox("Métier"):
           st.write("La catégorie professionnelle a un impact modéré sur le jeu de donnéees. Les catégories Student, Retired et unemployment ont d'avantage souscrit à un dépôt ) terme dans leur catégorie.")
