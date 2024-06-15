@@ -146,10 +146,11 @@ elif page==pages[2]:
           st.write("La catégorie professionnelle a un impact modéré sur le jeu de donnéees. Les catégories Student, Retired et unemployment ont d'avantage souscrit à un dépôt ) terme dans leur catégorie.")
           fig19=px.histogram(bank,x='job',color = 'deposit', barnorm = 'percent').update_xaxes(categoryorder='total descending')
           st.plotly_chart(fig19, key="bank")
-  st.write("-Age")
-  st.write("-Job")
-  st.write("-Month")
-  st.write("-Balance")
+  if st.checkbox("Age et solde du compte"):
+          st.write("L'âge et le solde sur le compte influent également sur notre variable cible. Plus ils sont élevés plus y à de souscription.")
+          fig20=px.scatter(bank,x='balance',y="age", color='deposit')
+          st.plotly_chart(fig20, key="bank")
+  
   
 elif page==pages[3]:
   st.write("DataViz")
