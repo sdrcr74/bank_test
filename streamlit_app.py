@@ -147,10 +147,12 @@ elif page==pages[2]:
           fig19=px.histogram(bank,x='job',color = 'deposit', barnorm = 'percent').update_xaxes(categoryorder='total descending')
           st.plotly_chart(fig19, key="bank")
   if st.checkbox("Age et solde du compte"):
-          st.write("L'âge et le solde sur le compte influent également sur notre variable cible. Plus ils sont élevés plus y à de souscription.")
+          st.write("L'âge et le solde sur le compte influent également sur notre variable cible. Plus ils sont élevés plus il y a de souscription.")
           fig20=px.scatter(bank,x='balance',y="age", color='deposit')
           st.plotly_chart(fig20, key="bank")
-  
+          st.write("Cependant l’âge aura certainement un impact un peu moins important étant donné que comme nous pouvons le voir l’âge médian est similaire entre les personnes qui ont souscrit ou non.")
+          fig21=px.box(bank, x='deposit', y='age')
+          st.plotly_chart(fig21, key="bank")
   
 elif page==pages[3]:
   st.write("DataViz")
