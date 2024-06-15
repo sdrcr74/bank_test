@@ -153,6 +153,8 @@ elif page==pages[2]:
           st.write("Cependant l’âge aura certainement un impact un peu moins important étant donné que comme nous pouvons le voir l’âge médian est similaire entre les personnes qui ont souscrit ou non.")
           fig21=px.box(bank, x='deposit', y='age')
           st.plotly_chart(fig21, key="bank")
+          fig22=px.box(bank, x='deposit', y='balance')
+          st.plotly_chart(fig22, key="bank")
   
 elif page==pages[3]:
   st.write("DataViz")
