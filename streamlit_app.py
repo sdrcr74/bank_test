@@ -26,7 +26,7 @@ if page==pages[0]:
   st.markdown("- Ce Streamlit illustre notre approche, allant de l'exploration des données à la création du modèle prédictif.")
 elif page==pages[1]:
   st.subheader("Le jeu de données")
-  st.markdown("- Le jeu de données nous a été fourni, il s'agit d'un fichier CSV s'appelant 'Bank Marketing Dataset', disponible librement sur [Kaggle] (https://www.kaggle.com/datasets/janiobachmann/bank-marketing-dataset).")
+  st.markdown("- Le jeu de données nous a été fourni, il s'agit d'un fichier CSV s'appelant 'Bank Marketing Dataset', disponible librement sur [Kaggle](https://www.kaggle.com/datasets/janiobachmann/bank-marketing-dataset).")
   st.markdown("- Description du contenu : Données personnelles (informations démographiques, situation financière, contact précédent avec la banque) issues de campagnes d'appel télémarketing d’une banque portugaise.")
   st.markdown("- Périmètre temporel : 2012")
   st.markdown("- Source : UC Irvine Machine Learning Repository")
