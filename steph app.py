@@ -192,13 +192,13 @@ if techniques=='Bagging':
        st.write('Nous n’avons pas observé de différence en utilisant le Bagging sur l’overfitting')
 if techniques=='RandomOverSampler':
     if st.button('accuracy y_train et y_test avec SMOTE'):
-       st.button('0.68 & 0.68')
-       st.write("Le résultat a été concluant avec un résultat de 0,68 sur le modèle d'entraînement.") 
-       st.write('En revanche, le résultat a nettement baissé sur le modèle test avec également un résultat de 0.68, jugé pas assez satisfaisant.')
+       st.button('0.83 & 0.83')
+       st.write("Le résultat a été concluant avec un résultat de 0,83 sur le modèle d'entraînement.") 
+       st.write('Quant au modèle test, nous obtenons également un très bon score avec 0.83.')
 if techniques=='GridSearchCV':
     if st.button('Best Hyperparameter'):
        st.write("{'max_depth': 10, 'n_estimators': 1000}")
     if st.button('accuracy y_train et y_test avec max_depth:10'):
-        st.button("0.87 & 0.83")
-        st.write("En conclusion, l'hyperparamètre max_depth semble être le meilleure solution pour éviter l'overfitting et conserver un modèle prédictif fiable et robuste.")
+       st.button("0.87 & 0.83")
+       st.write("En conclusion, l'hyperparamètre max_depth semble être le meilleure solution pour éviter l'overfitting et conserver un modèle prédictif fiable et robuste.")
         
