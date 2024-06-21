@@ -230,7 +230,7 @@ bank_cleaned['duration'] = bank_cleaned['duration'] // 60
     return bank_cleaned
   bank_cleaned = preprocess_data(bank)
 
-elif page==pages[4]:
+elif page==pages[5]:
         import streamlit as st
 import pandas as pd
 import plotly.express as px
