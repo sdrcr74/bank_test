@@ -19,7 +19,7 @@ with st.sidebar:
         st.write("Sophie DORCIER")
         st.write("Stéphane LASCAUX")
         st.write("Van-Anh HA")
-if page==pages[0]:
+f page==pages[0]:
   st.header("Description du projet")
   st.subheader("L'objectif :")
   st.write("Ce projet a été mené dans le cadre de notre formation Data Analyst avec Datascientest.")
@@ -70,7 +70,6 @@ elif page==pages[1]:
     st.dataframe((len(bank[bank['pdays'] == -1]) / len(bank)))
   if st.checkbox("Nombre de chiffres négatifs dans la variable balance"):
     st.dataframe(len(bank[bank['balance'] < 0]))
-
 elif page==pages[2]:
   st.write("Dans cette partie nous avons sélectionné les quelques visusalisations qui permettent, selon nous, une meilleure appréhension du jeu de données. Dans un premier temps nous avons fait une analyse de la distribution des variables et ensuite nous avons visualisé la répartition des données en fonction de la variable cible.")
   st.header("Distribution des variables")
