@@ -19,7 +19,7 @@ with st.sidebar:
         st.write("Sophie DORCIER")
         st.write("Stéphane LASCAUX")
         st.write("Van-Anh HA")
-f page==pages[0]:
+if page==pages[0]:
   st.header("Description du projet")
   st.subheader("L'objectif :")
   st.write("Ce projet a été mené dans le cadre de notre formation Data Analyst avec Datascientest.")
