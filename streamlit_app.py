@@ -348,10 +348,10 @@ elif page==pages[4]:
         X_train = pd.get_dummies(X_train, dtype = 'int')
         X_test= pd.get_dummies(X_test, dtype = 'int')
         if st.button('X_train'):
-            st.write(X_train.head())
+           st.write(X_train.head())
         st.write("6. Et pour la dernière étape, nous procéderons à l'encodage de la variable cible avec LabelEncoder")
         le = LabelEncoder()
-  if st.button('LabelEncoder'):
+        if st.button('LabelEncoder'):
            st.code('y_train= le.fit_transform(y_train)')
            st.code('le.transform(y_test)')
         y_train = le.fit_transform(y_train)
