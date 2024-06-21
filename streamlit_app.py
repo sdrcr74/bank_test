@@ -229,4 +229,4 @@ bank_cleaned['duration'] = bank_cleaned['duration'] // 60
         st.write(bank_cleaned['duration'].describe())
     st.write("Le jeu de données contient de nombreux outliers, mais étant donné qu'il ne s'agit pas de données aberrantes, nous avons décidé de le conserver tel quel.")
     return bank_cleaned
-    bank_cleaned = preprocess_data(bank)
+bank_cleaned = preprocess_data(bank)
