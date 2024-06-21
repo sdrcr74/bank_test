@@ -397,4 +397,8 @@ elif page==pages[4]:
             if st.button('accuracy y_train et y_test avec max_depth:10'):
                st.button("0.87 & 0.83")
                st.write("En conclusion, l'hyperparamètre max_depth semble être le meilleure solution pour éviter l'overfitting et conserver un modèle prédictif fiable et robuste.")
-                
+elif page==pages[5]:
+  st.subheader("Conclusion")
+  st.markdown("- Ce rapport offre à une entreprise des perspectives précieuses sur les schémas comportementaux des clients et les déterminants influençant leurs choix, offrant ainsi la possibilité d'optimiser les stratégies de marketing et de prendre des décisions stratégiques mieux éclairées.")
+  st.markdown("- Notre travail a permis d'identifier les variables les plus significatives tout en surmontant des obstacles tels que la signification des variables.")
+  st.markdown("- Des améliorations supplémentaires auraient pu être envisagées afin de peaufiner davantage notre modèle (analyse plus approfondie de l'importance des variables, application de techniques avancées de réduction de la dimensionnalité)")      
