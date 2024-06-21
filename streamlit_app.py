@@ -229,6 +229,7 @@ bank_cleaned['duration'] = bank_cleaned['duration'] // 60
     st.write("Le jeu de données contient de nombreux outliers, mais étant donné qu'il ne s'agit pas de données aberrantes, nous avons décidé de le conserver tel quel.")
     return bank_cleaned
   bank_cleaned = preprocess_data(bank)
+
 elif page==pages[4]:
         import streamlit as st
 import pandas as pd
@@ -406,22 +407,22 @@ if techniques=='Importance_feature':
       st.button('0.89 & 0.84')
       st.write("le fait de ne garder que les 9 variables les plus importantes n’a pas d’impact sur le score")
 
-if techniques=='Suppression variable Duration':
+ if techniques=='Suppression variable Duration':
     if st.button('accuracy y_train et y_test sans la variable Duration'): 
        st.button('0.79 & 0.71')
        st.write('L’overfitting sur la random forest a empiré en faisant baisser le score de notre jeu de test.') 
        st.write("Cependant nous avons pu observer une baisse de l'overfitting sur le modèle Logistic regression mais le score est plutôt faible.")
-if techniques=='Bagging':
+ if techniques=='Bagging':
     st.write("La méthode Bagging permet d'améliorer la performance et la stabilité des algorithmes en réduisant la variance et en limitant l'overfitting")
     if st.button('accuracy y_train et y_test Bagging'):
        st.button('1 & 0.84')
        st.write('Nous n’avons pas observé de différence en utilisant le Bagging sur l’overfitting')
-if techniques=='RandomOverSampler':
+ if techniques=='RandomOverSampler':
     if st.button('accuracy y_train et y_test avec SMOTE'):
        st.button('0.83 & 0.83')
        st.write("Le résultat a été concluant avec un résultat de 0,83 sur le modèle d'entraînement.") 
        st.write('Quant au modèle test, nous obtenons également un très bon score avec 0.83.')
-if techniques=='GridSearchCV':
+ if techniques=='GridSearchCV':
     if st.button('Best Hyperparameter'):
        st.write("{'max_depth': 10, 'n_estimators': 1000}")
     if st.button('accuracy y_train et y_test avec max_depth:10'):
