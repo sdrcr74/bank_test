@@ -200,9 +200,9 @@ bank_cleaned = bank_cleaned.drop(bank_cleaned.loc[bank_cleaned["education"] == "
     st.write("2. Soit nous la gardons telle quelle. Nous pouvons choisir un modèle qui peut être entraîné avec ce type de donnée, et nous verrons l’impact.")
     st.write("3. Soit nous supprimons complètement cette colonne car la distribution pourrait impacter négativement notre modèle.")
     st.write("Nous sommes plutôt partis sur la deuxième solution, car outre les 'unknown' et 'other', la distribution de la variable est plutôt bonne.")
-    st.write("- contact")
+    st.write("- **contact**")
     st.write("Nous avons décidé de supprimer cette colonne car sa distribution n’est pas représentative.")
-    st.write("- pdays")
+    st.write("- **pdays**")
     st.write("Nous avons décidé de supprimer cette colonne à cause de la valeur -1 sur-représentée et que nous ne sommes pas sûrs de bien interpréter.")
     code = """
 bank_cleaned = bank_cleaned.drop(['contact', 'pdays'], axis=1)
