@@ -390,14 +390,14 @@ elif page==pages[4]:
               st.write("Le fait de ne garder que les 5 variables les plus importantes réduit notre score")                                                                                              
            if st.button('accuracy y_train et y_test à 9 variables'):
               st.button('0.89 & 0.84')
-              st.write("Le fait de ne garder que les 9 variables les plus importantes n’a pas d’impact sur le score")
+              st.write("Le fait de ne garder que les 9 variables les plus importantes améliore sensiblement notre score")
         
         if techniques=='Suppression variable Duration':
             if st.button('accuracy y_train et y_test sans la variable Duration'): 
                st.button('0.79 & 0.71')
                st.write('L’overfitting sur la random forest a empiré en faisant baisser le score de notre jeu de test.') 
                st.write("Cependant nous avons pu observer une baisse de l'overfitting sur le modèle Logistic regression mais le score est plutôt faible.")
-               st.write("En conclusion, l'hyperparamètre max_depth semble être le meilleure solution pour éviter l'overfitting et conserver un modèle prédictif fiable et robuste.")
+               st.write("En conclusion, l'hyperparamètre max_depth semble être le meilleure solution avec un jeu de données réduit aux 9 variables les plus importantes pour éviter l'overfitting et conserver un modèle prédictif fiable et robuste.")
 elif page==pages[5]:
   st.subheader("Conclusion")
   st.markdown("- Ce rapport offre à une entreprise des perspectives précieuses sur les schémas comportementaux des clients et les déterminants influençant leurs choix, offrant ainsi la possibilité d'optimiser les stratégies de marketing et de prendre des décisions stratégiques mieux éclairées.")
