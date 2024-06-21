@@ -20,56 +20,27 @@ with st.sidebar:
         st.write("Stéphane LASCAUX")
         st.write("Van-Anh HA")
 if page==pages[0]:
-  st.header("Description du projet")
-  st.subheader("L'objectif :")
-  st.write("Ce projet a été mené dans le cadre de notre formation Data Analyst avec Datascientest.")
-  st.write("L’objectif du projet est d’établir un modèle permettant de prédire le succès d’une campagne marketing d’une banque.")
-  st.write("Concrétement il s'agit de prédire, sur la base des données démographiques du client, sa situation financière et son précédent contact avec la banque, s'il va souscrire ou non au produit Dépôt à terme.")
-  st.write("Le jeu de données qui nous a été mis à disposition s’appelle 'Bank Marketing Dataset'. Ce jeu de données est disponible librement sur [Kaggle] (https://www.kaggle.com/datasets/janiobachmann/bank-marketing-dataset)")
-  st.write("Ce Streamlit illustre notre approche, allant de l'exploration des données à la création du modèle prédictif.")
-  st.image("https://raw.githubusercontent.com/sdrcr74/bank_nov23/main/banking.jpg")
+  st.header("Généralités")
+  st.markdown("- En marketing, l'analyse prédictive permet une personnalisation plus précise et des campagnes mieux ciblés.")
+  st.markdown("- Application en projet de formation Data Analyst : prédiction du succès de la campagne marketing du produit Dépôt à terme d’une banque.")
+  st.markdown("- Ce Streamlit illustre notre approche, allant de l'exploration des données à la création du modèle prédictif.")
 elif page==pages[1]:
-  st.subheader("Le jeu de données :")
-  st.write("Description du contenu : Données personnelles issues des campagnes de marketing direct d’une banque portugaise.")
-  st.write("Périmètre temporel : 2012")
-  st.write("Source : UC Irvine Machine Learning Repository, mise à disposition sur Kaggle")
-  st.write("Dimension : 11 162 lignes & 17 colonnes")
-  st.write("Définition des variables :")
-  url2 = 'https://raw.githubusercontent.com/sdrcr74/bank_nov23/main/Liste%20variable.csv'
-  liste_variable = pd.read_csv(url2, sep =";", index_col = None)
-  st.write(liste_variable)
-  st.write("Dans un premier temps, nous étudierons les différentes variables à travers les visualisations. Dans un deuxième temps, nous procéderons aux préparations de données nécessaires permettant de les modéliser par la suite.")
-  st.write('Exploration des données')
-  st.write("Avant d'explorer les données du dataset, il nous a semblé pertinent de comprendre les différentes variables présentes dans le jeu de données.") 
-  st.write("Pour la plupart, l'intitulé des variables était clair et compréhensible. Nous allons cependant clarifier certaines variables:") 
-  st.write("-balance: montant du compte en banque")
-  st.write("-housing: prêt immobilier") 
-  st.write("-loan: autre prêt") 
-  st.write("-contact: moyen de contact") 
-  st.write("-day & month: jour et mois du contact")
-  st.write("-duration: durée du contact") 
-  st.write("-campaign: nombre de contact durant la campagne marketing") 
-  st.write("-pdays: nombre de jours de contact avant la campagne")
-  st.write("-previous: nombre de contact avant la campagne")
-  st.write("-poutcome: résultat de la dernière campagne")
-  st.write("Aperçu de notre dataset")
-  st.dataframe(bank.head())
-  st.write('Dimensions du Dataframe')
-  st.write(bank.shape)
-  if st.checkbox("Afficher le nombre de doublons"):
-    st.dataframe(bank.duplicated())
-  if st.checkbox("Afficher les valeurs manquantes"):
-    st.dataframe(bank.isna().sum())
-  if st.checkbox("Répartition de la variable deposit"):
-    st.dataframe(bank['deposit'].value_counts())
-  if st.checkbox("Répartition en % par résultat de la dernière campagne via la variable poutcome"):
-    st.dataframe(bank['poutcome'].value_counts()/len(bank))
-  if st.checkbox("Pourcentage du nombre de contact lors de la dernière campagne égal à 0"):
-    st.dataframe((bank['previous'] == 0).value_counts()/len(bank))
-  if st.checkbox("Pourcentage de -1 dans la variable pdays"):
-    st.dataframe((len(bank[bank['pdays'] == -1]) / len(bank)))
-  if st.checkbox("Nombre de chiffres négatifs dans la variable balance"):
-    st.dataframe(len(bank[bank['balance'] < 0]))
+  st.subheader("Le jeu de données")
+  st.markdown("- Le jeu de données nous a été fourni, il s'agit d'un fichier CSV s'appelant 'Bank Marketing Dataset', disponible librement sur Kaggle.")
+  st.markdown("- Description du contenu : Données personnelles (informations démographiques, situation financière, contact précédent avec la banque) issues de campagnes d'appel télémarketing d’une banque portugaise.")
+  st.markdown("- Périmètre temporel : 2012")
+  st.markdown("- Source : UC Irvine Machine Learning Repository")
+  st.markdown("- Dimension : 11 162 lignes & 17 colonnes (16 variables explicatives & 1 variable cible")
+  st.markdown("- Définition des variables :")
+  url2 = 'https://raw.githubusercontent.com/vha22/bank-marketing/main/Liste%20variable.csv'
+  liste_variable = pd.read_csv(url2)
+  st.dataframe(liste_variable)
+  st.markdown("- Qualité de données : à première vue, la base de données nous semble propre :")
+  if st.checkbox("Nombre de doublons :"):
+    st.write(bank.duplicated().sum())
+  if st.checkbox("Nombre de valeurs manquantes :"):
+    st.write(bank.isna().any(axis = 0))
+  st.write("Dans la partie suivante, nous allons explorer les données de façon plus approfondie à travers de la datavisualisation.")
 elif page==pages[2]:
   st.write("Dans cette partie nous avons sélectionné les quelques visusalisations qui permettent, selon nous, une meilleure appréhension du jeu de données. Dans un premier temps nous avons fait une analyse de la distribution des variables et ensuite nous avons visualisé la répartition des données en fonction de la variable cible.")
   st.header("Distribution des variables")
