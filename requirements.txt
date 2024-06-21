@@ -5,4 +5,4 @@ plotly
 matplotlib
 seaborn
 scikit-learn
-imblearn.over_sampling
+imblearn
