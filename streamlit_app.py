@@ -367,7 +367,7 @@ elif page==pages[4]:
         feat_importances.sort_values(by='Importance', ascending=False, inplace=True)
         feat_importances.plot(kind='bar', figsize=(8,6))
         if techniques=='Bagging':
-        st.write("La méthode Bagging permet d'améliorer la performance et la stabilité des algorithmes en réduisant la variance et en limitant l'overfitting")
+            st.write("La méthode Bagging permet d'améliorer la performance et la stabilité des algorithmes en réduisant la variance et en limitant l'overfitting")
             if st.button('accuracy y_train et y_test Bagging'):
                st.button('1 & 0.84')
                st.write('Nous n’avons pas observé de différence en utilisant le Bagging sur l’overfitting')
