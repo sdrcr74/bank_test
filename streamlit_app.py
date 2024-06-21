@@ -366,23 +366,8 @@ elif page==pages[4]:
         feat_importances = pd.DataFrame(forest.feature_importances_, index=X_test.columns, columns =['Importance'] )
         feat_importances.sort_values(by='Importance', ascending=False, inplace=True)
         feat_importances.plot(kind='bar', figsize=(8,6))
-        if techniques=='Importance_feature':
-           st.pyplot(feat_importances.plot(kind='bar').figure)
-           st.write('Nous remarquons que la variable Duration prédomine de manière significative sur toutes les autres variables')
-           st.write("Suite à l'analyse de l'importance des variables, nous allons réduire notre jeu de données à 5 et 9 variables:")
-           if st.button('accuracy y_train et y_test à 5 variables'):                   
-              st.button('0.87 & 0.81')   
-              st.write("Le fait de ne garder que les 5 variables les plus importantes réduit notre score")                                                                                              
-           if st.button('accuracy y_train et y_test à 9 variables'):
-              st.button('0.89 & 0.84')
-              st.write("Le fait de ne garder que les 9 variables les plus importantes n’a pas d’impact sur le score")
-        if techniques=='Suppression variable Duration':
-            if st.button('accuracy y_train et y_test sans la variable Duration'): 
-               st.button('0.79 & 0.71')
-               st.write('L’overfitting sur la random forest a empiré en faisant baisser le score de notre jeu de test.') 
-               st.write("Cependant nous avons pu observer une baisse de l'overfitting sur le modèle Logistic regression mais le score est plutôt faible.")
         if techniques=='Bagging':
-            st.write("La méthode Bagging permet d'améliorer la performance et la stabilité des algorithmes en réduisant la variance et en limitant l'overfitting")
+        st.write("La méthode Bagging permet d'améliorer la performance et la stabilité des algorithmes en réduisant la variance et en limitant l'overfitting")
             if st.button('accuracy y_train et y_test Bagging'):
                st.button('1 & 0.84')
                st.write('Nous n’avons pas observé de différence en utilisant le Bagging sur l’overfitting')
@@ -396,6 +381,22 @@ elif page==pages[4]:
                st.write("{'max_depth': 10, 'n_estimators': 1000}")
             if st.button('accuracy y_train et y_test avec max_depth:10'):
                st.button("0.87 & 0.83")
+        if techniques=='Importance_feature':
+           st.pyplot(feat_importances.plot(kind='bar').figure)
+           st.write('Nous remarquons que la variable Duration prédomine de manière significative sur toutes les autres variables')
+           st.write("Suite à l'analyse de l'importance des variables, nous allons réduire notre jeu de données à 5 et 9 variables:")
+           if st.button('accuracy y_train et y_test à 5 variables'):                   
+              st.button('0.87 & 0.81')   
+              st.write("le fait de ne garder que les 5 variables les plus importantes réduit notre score")                                                                                              
+           if st.button('accuracy y_train et y_test à 9 variables'):
+              st.button('0.89 & 0.84')
+              st.write("le fait de ne garder que les 9 variables les plus importantes n’a pas d’impact sur le score")
+        
+        if techniques=='Suppression variable Duration':
+            if st.button('accuracy y_train et y_test sans la variable Duration'): 
+               st.button('0.79 & 0.71')
+               st.write('L’overfitting sur la random forest a empiré en faisant baisser le score de notre jeu de test.') 
+               st.write("Cependant nous avons pu observer une baisse de l'overfitting sur le modèle Logistic regression mais le score est plutôt faible.")
                st.write("En conclusion, l'hyperparamètre max_depth semble être le meilleure solution pour éviter l'overfitting et conserver un modèle prédictif fiable et robuste.")
 elif page==pages[5]:
   st.subheader("Conclusion")
