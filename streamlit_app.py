@@ -32,9 +32,9 @@ elif page==pages[1]:
   st.markdown("- Source : UC Irvine Machine Learning Repository")
   st.markdown("- Dimension : 11 162 lignes & 17 colonnes (16 variables explicatives & 1 variable cible")
   st.markdown("- Définition des variables :")
-  url2 = 'https://raw.githubusercontent.com/vha22/bank-marketing/main/Liste%20variable.csv'
-  liste_variable = pd.read_csv(url2)
-  st.dataframe(liste_variable)
+  url2 = 'https://raw.githubusercontent.com/sdrcr74/bank_nov23/main/Liste%20variable.csv'
+  liste_variable = pd.read_csv(url2, sep =";", index_col = None)
+  st.write(liste_variable)
   st.markdown("- Qualité de données : à première vue, la base de données nous semble propre :")
   if st.checkbox("Nombre de doublons :"):
     st.write(bank.duplicated().sum())
