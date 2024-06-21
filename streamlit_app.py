@@ -11,7 +11,7 @@ st.markdown("<h1 style='text-align : center;'>Prédiction du succès d une campa
 st.subheader("NOV23_CONTINU_DA - Datascientest", divider='blue')
 
 st.sidebar.title("Sommaire")
-pages=["Le projet","Le jeu de données", "Datavisualisation","Préparation des données","Modélisation","Conclusion"]
+pages=["Le projet","Exploration du JDD", "Analyse et visualisation du JDD","Préparation des données","Modélisation","Conclusion"]
 page=st.sidebar.radio("Aller à la page:", pages)
 st.sidebar.title("Auteurs")
 with st.sidebar:
