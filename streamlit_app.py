@@ -194,7 +194,7 @@ bank_cleaned = bank_cleaned.drop(bank_cleaned.loc[bank_cleaned["education"] == "
         st.write("### Distribution de Education après nettoyage:")
         st.write(bank_cleaned['education'].value_counts())
     st.write("Nous avons eu une réflexion pour certaines variables :")
-    st.write("- poutcome")
+    st.write("**- poutcome"**)
     st.write("Nous avons réfléchi à 3 options :")
     st.write("1. Soit nous gardons cette variable dans le dataset et nous supprimons les lignes 'unknown'. Cela a pour conséquence de réduire considérablement la taille de notre dataset. Mais nous serons certainement amenés à le réduire dans tous les cas par la suite.")
     st.write("2. Soit nous la gardons telle quelle. Nous pouvons choisir un modèle qui peut être entraîné avec ce type de donnée, et nous verrons l’impact.")
