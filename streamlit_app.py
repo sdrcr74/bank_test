@@ -168,7 +168,6 @@ elif page==pages[2]:
           st.plotly_chart(fig24, key="bank")
   st.write("La particularité de ce jeu de donnée est que nous remontons beaucoup d'outliers sur les variables numériques. Dans la partie suivante de pre-processing nous devrons choisir de les garder, les modifier ou les supprimer.")
 
-
 elif page==pages[3]:
   st.write("Dans cette partie, nous allons voir quels sont les traitements que nous avons effectués sur le JDD afin de le « nettoyer » et de le préparer pour la suite.")
   st.header("Preprocessing des données bancaires")
