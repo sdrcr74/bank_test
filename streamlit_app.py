@@ -399,6 +399,6 @@ elif page==pages[4]:
                st.write("En conclusion, l'hyperparamètre max_depth 10 semble être le meilleure solution combiné à un jeu de données réduit aux 9 variables les plus importantes pour éviter l'overfitting et conserver un modèle prédictif fiable et robuste.")
 elif page==pages[5]:
   st.subheader("Conclusion")
-  st.markdown("- Ce rapport offre à une entreprise des perspectives précieuses sur les schémas comportementaux des clients et les déterminants influençant leurs choix, offrant ainsi la possibilité d'optimiser les stratégies de marketing et de prendre des décisions stratégiques mieux éclairées.")
+  st.markdown("- Ce rapport offre à une entreprise des perspectives sur les schémas comportementaux des clients, les déterminants influençant leurs choix, offrant ainsi des pistes d'optimiser les stratégies de marketing.")
   st.markdown("- Les difficultés rencontrées : la source étrangère des données, la signification non-explicite des variables, les données manquantes masquées en unknown, l'overfitting.")
   st.markdown("- Des améliorations supplémentaires auraient pu être envisagées, par exemple application de techniques avancées de réduction de la dimensionnalité.")      
