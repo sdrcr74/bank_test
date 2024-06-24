@@ -395,7 +395,7 @@ elif page==pages[4]:
             if st.button('accuracy y_train et y_test sans la variable Duration'): 
                st.button('0.79 & 0.71')
                st.write('L’overfitting sur la random forest a empiré en faisant baisser le score de notre jeu de test.') 
-               st.button('0.89 & 0.84 pour le RandomForest')
+               st.button('Meilleur résultat: 0.89 & 0.84 pour le RandomForest avec max_depth:10 et 9 variables les plus importantes')
                st.write("En conclusion, l'hyperparamètre max_depth 10 semble être le meilleure solution combiné à un jeu de données réduit aux 9 variables les plus importantes pour éviter l'overfitting et conserver un modèle prédictif fiable et robuste.")
 elif page==pages[5]:
   st.subheader("Conclusion")
