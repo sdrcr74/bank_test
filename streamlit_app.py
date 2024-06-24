@@ -400,5 +400,5 @@ elif page==pages[4]:
 elif page==pages[5]:
   st.subheader("Conclusion")
   st.markdown("- Ce rapport offre à une entreprise des perspectives précieuses sur les schémas comportementaux des clients et les déterminants influençant leurs choix, offrant ainsi la possibilité d'optimiser les stratégies de marketing et de prendre des décisions stratégiques mieux éclairées.")
-  st.markdown("- Notre travail a permis d'identifier les variables les plus significatives tout en surmontant des obstacles tels que la signification des variables.")
-  st.markdown("- Des améliorations supplémentaires auraient pu être envisagées afin de peaufiner davantage notre modèle (analyse plus approfondie de l'importance des variables, application de techniques avancées de réduction de la dimensionnalité)")      
+  st.markdown("- Les difficultés rencontrées : la source étrangère des données, la signification non-explicite des variables, les données manquantes masquées en unknown, l'overfitting.")
+  st.markdown("- Des améliorations supplémentaires auraient pu être envisagées, par exemple application de techniques avancées de réduction de la dimensionnalité.")      
