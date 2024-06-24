@@ -344,6 +344,7 @@ elif page==pages[4]:
         
         
         st.subheader('Résultats du modèle')
+        st.write('Nous avons décidé de sélectionner 3 algorithmes de machine learning:')
         modèle_sélectionné=st.selectbox(label="Modèle", options=['Régression logistique','Decision Tree','Random Forest'])
         
         if modèle_sélectionné=='Régression logistique':
