@@ -250,7 +250,7 @@ elif page==pages[4]:
         X_train[cols]=scaler.fit_transform(X_train[cols])
         X_test[cols] = scaler.transform(X_test[cols])
         
-        st.write("3. Ensuite nous encoderons les variables explicatives Housing, Default et Loan de valeur booléenne avec la formule")
+        st.write("3. Ensuite nous encoderons les variables explicatives Housing, Default et Loan de valeur booléenne avec la définition suivante:")
        
         st.code('def replace_yes_no(x)')
         st.code("if x=='no':")
