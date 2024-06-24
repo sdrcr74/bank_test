@@ -369,7 +369,7 @@ elif page==pages[4]:
             if st.button('accuracy y_train et y_test Bagging'):
                st.button('1 & 0.84')
                st.write('Nous n’avons pas observé de différence en utilisant le Bagging sur l’overfitting')
-         if techniques=='GridSearchCV':
+        if techniques=='GridSearchCV':
             if st.button('Best Hyperparameter'):
                st.write("{'max_depth': 10, 'n_estimators': 1000}")
             if st.button('accuracy y_train et y_test avec max_depth:10'):
