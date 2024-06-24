@@ -395,7 +395,8 @@ elif page==pages[4]:
             if st.button('accuracy y_train et y_test sans la variable Duration'): 
                st.button('0.79 & 0.71')
                st.write('L’overfitting sur la random forest a empiré en faisant baisser le score de notre jeu de test.') 
-               st.write("En conclusion, l'hyperparamètre max_depth 10 semble être le meilleure solution avec un jeu de données réduit aux 9 variables les plus importantes pour éviter l'overfitting et conserver un modèle prédictif fiable et robuste.")
+               st.button('0.89 & 0.84 pour le RandomForest')
+               st.write("En conclusion, l'hyperparamètre max_depth 10 semble être le meilleure solution combiné à un jeu de données réduit aux 9 variables les plus importantes pour éviter l'overfitting et conserver un modèle prédictif fiable et robuste.")
 elif page==pages[5]:
   st.subheader("Conclusion")
   st.markdown("- Ce rapport offre à une entreprise des perspectives précieuses sur les schémas comportementaux des clients et les déterminants influençant leurs choix, offrant ainsi la possibilité d'optimiser les stratégies de marketing et de prendre des décisions stratégiques mieux éclairées.")
