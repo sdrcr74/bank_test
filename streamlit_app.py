@@ -339,8 +339,8 @@ elif page==pages[4]:
         
         treecl = DecisionTreeClassifier(random_state=42)
         treecl.fit(X_train,y_train)
-        
         print('Accuracy score du Decision Tree (train) : ',treecl.score(X_train, y_train))
+      
         
         
         st.subheader('Résultats du modèle')
