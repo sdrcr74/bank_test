@@ -26,42 +26,39 @@ bank_cleaned = bank.drop(bank.loc[bank["education"] == "unknown"].index, inplace
 bank_cleaned = bank.drop(['contact', 'pdays'], axis = 1)
 st.subheader('Modélisation')
 st.write('Le modèle choisi sera la classification en raison des valeurs discrètes de la variable cible deposit')
-if st.button('Variable Deposit'):
-    st.write(bank_cleaned['deposit'].head())
+
+st.write(bank_cleaned['deposit'].head())
 feats = bank_cleaned.drop(['deposit'], axis = 1)
 target = bank_cleaned['deposit']
 st.write('Le jeu de données sera donc séparé en 2 dataframes: "feats" et "target"')
-if st.button("Code"):
-    st.code("feats = bank_cleaned.drop(['deposit'], axis = 1)")
-    st.code("target = bank_cleaned['deposit']")
-if st.button("feats"):
-    st.dataframe(feats)
-if st.button("target"):
-    st.dataframe(target)
+
+st.dataframe(feats)
+
+st.dataframe(target)
 st.write("1. Nous allons procéder à la séparation du jeu de données en jeu d'entrainement X_train et test X_test avec la répartition 80 et 20%")
 X_train, X_test, y_train, y_test = train_test_split(feats, target, test_size = 0.2, random_state=42)
-if st.button('Code 1'):
-   st.code('X_train, X_test, y_train, y_test = train_test_split(feats, target, test_size = 0.2, random_state=42')
+
+st.code('X_train, X_test, y_train, y_test = train_test_split(feats, target, test_size = 0.2, random_state=42')
 st.write("2. Puis nous allons dans un deuxième temps appliquer la standardisation des variables numériques")
 cols = ['age','balance','day','campaign','previous','duration']
 scaler = StandardScaler()
 cols =['age','balance','day','campaign','previous','duration']
 cols1 = bank_cleaned[['age','balance','day','campaign','previous','duration']]
-if st.button("Code 2"):
-  st.code("X_train[cols] = scaler.fit_transform(X_train[cols]")
-  st.code("X_test[cols] = scaler.transform(X_test[cols]")
-if st.checkbox("Variables numériques"):
-   st.dataframe(cols1)
+
+st.code("X_train[cols] = scaler.fit_transform(X_train[cols]")
+st.code("X_test[cols] = scaler.transform(X_test[cols]")
+
+st.dataframe(cols1)
 X_train[cols]=scaler.fit_transform(X_train[cols])
 X_test[cols] = scaler.transform(X_test[cols])
 
 st.write("3. Ensuite nous encoderons les variables explicatives Housing, Default et Loan de valeur booléenne avec la formule")
-if st.button('Définition'):
-   st.code('def replace_yes_no(x)')
-   st.code("if x=='no':")
-   st.code("  return 0")
-   st.code("if x=='yes':")
-   st.code("  return 1")
+
+st.code('def replace_yes_no(x)')
+st.code("if x=='no':")
+st.code("  return 0")
+st.code("if x=='yes':")
+st.code("  return 1")
 def replace_yes_no(x):
   if x == 'no':
     return 0
@@ -115,19 +112,19 @@ from sklearn.impute import SimpleImputer
 X_train['month'] = X_train['month'].apply(replace_month)
 X_test['month'] = X_test['month'].apply(replace_month)
 st.write('5. Nous nous servirons de la fonction get.dummies pour les variables de chaîne de caractères')
-if st.button('get_dummies'):
-   st.code("X_train = pd.get_dummies(X_train, dtype = 'int')")
-   st.code("X_test= pd.get_dummies(X_test, dtype = 'int')")
+
+st.code("X_train = pd.get_dummies(X_train, dtype = 'int')")
+st.code("X_test= pd.get_dummies(X_test, dtype = 'int')")
 
 X_train = pd.get_dummies(X_train, dtype = 'int')
 X_test= pd.get_dummies(X_test, dtype = 'int')
-if st.button('X_train'):
-    st.write(X_train.head())
+
+st.write(X_train.head())
 st.write("6. Et pour la dernière étape, nous procéderons à l'encodage de la variable cible avec LabelEncoder")
 le = LabelEncoder()
-if st.button('LabelEncoder'):
-   st.code('y_train= le.fit_transform(y_train)')
-   st.code('le.transform(y_test)')
+
+st.code('y_train= le.fit_transform(y_train)')
+st.code('le.transform(y_test)')
 y_train = le.fit_transform(y_train)
 y_test = le.transform(y_test)
 from sklearn.linear_model import LogisticRegression
@@ -164,7 +161,7 @@ if modèle_sélectionné=='Random Forest':
 st.write("Le modèle RandomForest est donc le meilleur modèle au vu des résultats mais nous constatons un problème d'overfitting")
 st.write('Afin d’évaluer la précision de notre modèle, nous avons vérifié sa volatilité avec la technique de validation croisée sur le modèle RandomForest. Celle-ci étant peu volatile [0.77762106 0.74424071 0.78232252 0.83921016 0.82267168] , nous pouvons considérer que le modèle est fiable via un train_test_split.')
 st.write("Techniques utilisées pour baisser l'overfitting")
-techniques=st.selectbox(label='Techniques', options=['Bagging','RandomOverSampler','GridSearchCV','Importance_feature','Suppression variable Duration'])
+techniques=st.selectbox(label='Techniques', options=['Bagging','GridSearchCV','RandomOverSampler','Importance_feature','Suppression variable Duration'])
 
 feat_importances = pd.DataFrame(forest.feature_importances_, index=X_test.columns, columns =['Importance'] )
 feat_importances.sort_values(by='Importance', ascending=False, inplace=True)
@@ -174,16 +171,17 @@ if techniques=='Bagging':
     if st.button('accuracy y_train et y_test Bagging'):
        st.button('1 & 0.84')
        st.write('Nous n’avons pas observé de différence en utilisant le Bagging sur l’overfitting')
-if techniques=='RandomOverSampler':
-    if st.button('accuracy y_train et y_test avec SMOTE'):
-       st.button('0.83 & 0.83')
-       st.write("Le résultat a été concluant avec un résultat de 0,83 sur le modèle d'entraînement.") 
-       st.write('Quant au modèle test, nous obtenons également un très bon score avec 0.83.')
 if techniques=='GridSearchCV':
     if st.button('Best Hyperparameter'):
        st.write("{'max_depth': 10, 'n_estimators': 1000}")
     if st.button('accuracy y_train et y_test avec max_depth:10'):
        st.button("0.87 & 0.83")
+if techniques=='RandomOverSampler':
+    if st.button('accuracy y_train et y_test avec SMOTE'):
+       st.button('0.83 & 0.83')
+       st.write("Le résultat a été concluant avec un résultat de 0,83 sur le modèle d'entraînement.") 
+       st.write('Quant au modèle test, nous obtenons également un très bon score avec 0.83.')
+
 if techniques=='Importance_feature':
    st.pyplot(feat_importances.plot(kind='bar').figure)
    st.write('Nous remarquons que la variable Duration prédomine de manière significative sur toutes les autres variables')
@@ -201,5 +199,5 @@ if techniques=='Suppression variable Duration':
        st.write('L’overfitting sur la random forest a empiré en faisant baisser le score de notre jeu de test.') 
        st.write("Cependant nous avons pu observer une baisse de l'overfitting sur le modèle Logistic regression mais le score est plutôt faible.")
 
-       st.write("En conclusion, l'hyperparamètre max_depth semble être le meilleure solution pour éviter l'overfitting et conserver un modèle prédictif fiable et robuste.")
+       st.write("En conclusion, l'hyperparamètre max_depth 10 avec un jeu de données réduit aux 9 variables les plus importantes semble être le meilleure solution pour éviter l'overfitting et conserver un modèle prédictif fiable et robuste.")
         
